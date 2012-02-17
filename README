@@ -1,1 +1,15 @@
 Restool v3.0
+
+v3.0.1 Changes [2/17/2012]
+
+ - Converted to VB 2010 Project
+ - Now using Enviormental Variables with path names
+ - Able to use 2 servers
+	+ (Restech) default server, manually updated
+	+ (Test) test server, apps checked for updates daily
+ - Server Status text added
+
+
+TODO's
+ - Catch Exceptions when Downloads fail
+ - Get ESET past the Start Button and to start scanning

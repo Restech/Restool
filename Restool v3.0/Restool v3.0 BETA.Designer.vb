@@ -22,37 +22,44 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.eset_online_scanner = New System.Windows.Forms.Button
-        Me.OsVersion = New System.Windows.Forms.Button
-        Me.Fsecure = New System.Windows.Forms.Button
-        Me.Housecall = New System.Windows.Forms.Button
-        Me.combofix = New System.Windows.Forms.Button
-        Me.malwarebytes = New System.Windows.Forms.Button
-        Me.spybot = New System.Windows.Forms.Button
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox
-        Me.Bitdefender = New System.Windows.Forms.Button
-        Me.superantispyware = New System.Windows.Forms.Button
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox
-        Me.avast_removal = New System.Windows.Forms.Button
-        Me.trendmicro_removal = New System.Windows.Forms.Button
-        Me.kaspersky_removal = New System.Windows.Forms.Button
-        Me.avg_removal = New System.Windows.Forms.Button
-        Me.mcafee_product_removal = New System.Windows.Forms.Button
-        Me.norton_removal = New System.Windows.Forms.Button
-        Me.niu_mcafee_removal = New System.Windows.Forms.Button
-        Me.nac_removal = New System.Windows.Forms.Button
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox
-        Me.GroupBox5 = New System.Windows.Forms.GroupBox
-        Me.msse_install = New System.Windows.Forms.Button
-        Me.nac_install = New System.Windows.Forms.Button
-        Me.mcafee_install = New System.Windows.Forms.Button
-        Me.GroupBox6 = New System.Windows.Forms.GroupBox
-        Me.systemfilecheck = New System.Windows.Forms.Button
-        Me.windowsupdatefix = New System.Windows.Forms.Button
-        Me.reset_permissions = New System.Windows.Forms.Button
-        Me.winsock = New System.Windows.Forms.Button
-        Me.ccleaner = New System.Windows.Forms.Button
+        Me.eset_online_scanner = New System.Windows.Forms.Button()
+        Me.OsVersion = New System.Windows.Forms.Button()
+        Me.Fsecure = New System.Windows.Forms.Button()
+        Me.Housecall = New System.Windows.Forms.Button()
+        Me.combofix = New System.Windows.Forms.Button()
+        Me.malwarebytes = New System.Windows.Forms.Button()
+        Me.spybot = New System.Windows.Forms.Button()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Bitdefender = New System.Windows.Forms.Button()
+        Me.superantispyware = New System.Windows.Forms.Button()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.avast_removal = New System.Windows.Forms.Button()
+        Me.trendmicro_removal = New System.Windows.Forms.Button()
+        Me.kaspersky_removal = New System.Windows.Forms.Button()
+        Me.avg_removal = New System.Windows.Forms.Button()
+        Me.mcafee_product_removal = New System.Windows.Forms.Button()
+        Me.norton_removal = New System.Windows.Forms.Button()
+        Me.niu_mcafee_removal = New System.Windows.Forms.Button()
+        Me.nac_removal = New System.Windows.Forms.Button()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.msse_install = New System.Windows.Forms.Button()
+        Me.nac_install = New System.Windows.Forms.Button()
+        Me.mcafee_install = New System.Windows.Forms.Button()
+        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.systemfilecheck = New System.Windows.Forms.Button()
+        Me.windowsupdatefix = New System.Windows.Forms.Button()
+        Me.reset_permissions = New System.Windows.Forms.Button()
+        Me.winsock = New System.Windows.Forms.Button()
+        Me.ccleaner = New System.Windows.Forms.Button()
+        Me.Next1 = New System.Windows.Forms.Button()
+        Me.ServerList1 = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Status1 = New System.Windows.Forms.Label()
+        Me.Status2 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -365,11 +372,81 @@ Partial Class Form1
         Me.ccleaner.Text = "Ccleaner"
         Me.ccleaner.UseVisualStyleBackColor = True
         '
+        'Next1
+        '
+        Me.Next1.Location = New System.Drawing.Point(431, 402)
+        Me.Next1.Name = "Next1"
+        Me.Next1.Size = New System.Drawing.Size(75, 23)
+        Me.Next1.TabIndex = 15
+        Me.Next1.Text = "W.I.P."
+        Me.Next1.UseVisualStyleBackColor = True
+        '
+        'ServerList1
+        '
+        Me.ServerList1.FormattingEnabled = True
+        Me.ServerList1.Location = New System.Drawing.Point(184, 406)
+        Me.ServerList1.MaxDropDownItems = 2
+        Me.ServerList1.Name = "ServerList1"
+        Me.ServerList1.Size = New System.Drawing.Size(121, 21)
+        Me.ServerList1.TabIndex = 16
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(139, 409)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(38, 13)
+        Me.Label1.TabIndex = 17
+        Me.Label1.Text = "Server"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(13, 388)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(47, 13)
+        Me.Label2.TabIndex = 18
+        Me.Label2.Text = "Restech"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(13, 408)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(28, 13)
+        Me.Label3.TabIndex = 19
+        Me.Label3.Text = "Test"
+        '
+        'Status1
+        '
+        Me.Status1.AutoSize = True
+        Me.Status1.Location = New System.Drawing.Point(66, 388)
+        Me.Status1.Name = "Status1"
+        Me.Status1.Size = New System.Drawing.Size(37, 13)
+        Me.Status1.TabIndex = 20
+        Me.Status1.Text = "Status"
+        '
+        'Status2
+        '
+        Me.Status2.AutoSize = True
+        Me.Status2.Location = New System.Drawing.Point(66, 408)
+        Me.Status2.Name = "Status2"
+        Me.Status2.Size = New System.Drawing.Size(37, 13)
+        Me.Status2.TabIndex = 21
+        Me.Status2.Text = "Status"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(519, 393)
+        Me.ClientSize = New System.Drawing.Size(521, 437)
+        Me.Controls.Add(Me.Status2)
+        Me.Controls.Add(Me.Status1)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.ServerList1)
+        Me.Controls.Add(Me.Next1)
         Me.Controls.Add(Me.GroupBox6)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox4)
@@ -377,7 +454,7 @@ Partial Class Form1
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "Form1"
-        Me.Text = "ResTool v3.0 BETA"
+        Me.Text = "ResTool v3.0.1 BETA"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
@@ -385,6 +462,7 @@ Partial Class Form1
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox6.ResumeLayout(False)
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents eset_online_scanner As System.Windows.Forms.Button
@@ -418,5 +496,12 @@ Partial Class Form1
     Friend WithEvents reset_permissions As System.Windows.Forms.Button
     Friend WithEvents windowsupdatefix As System.Windows.Forms.Button
     Friend WithEvents systemfilecheck As System.Windows.Forms.Button
+    Friend WithEvents Next1 As System.Windows.Forms.Button
+    Friend WithEvents ServerList1 As System.Windows.Forms.ComboBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents Status1 As System.Windows.Forms.Label
+    Friend WithEvents Status2 As System.Windows.Forms.Label
 
 End Class

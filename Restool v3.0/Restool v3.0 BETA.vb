@@ -1,11 +1,22 @@
 ﻿Public Class Form1
+    'List of Server addresses
+    Public server1 As String = "http://restech.niu.edu/"
+    Public server2 As String = "http://servx.zapto.org/Restool/apps/"
+    Public serverSelect As String                   'This is the server currently selected
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         scriptsCheck()
+        'Load Server Options
+        ServerList1.Items.AddRange(New Object() {"Restech", "Test"})
+        ServerList1.SelectedIndex = 0                   ' Set Restech to be default server
+
+        'Check Server Status
+        checkServerStatus(server1, Status1)
+        checkServerStatus(server2, Status2)
     End Sub
     '################################ONLINE VIRUS SCANNER FUNCTIONS#######################
     'COMBOFIX
     Private Sub combofix_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles combofix.Click
-        Dim address As String = "http://restech.niu.edu/cf.exe"
+        Dim address As String = serverSelect & "cf.exe"
         Dim file As String = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\cf.exe"
         My.Computer.Network.DownloadFile(address, file, "", "", True, 10, True)
         Process.Start(file)
@@ -14,9 +25,9 @@
     Private Sub malwarebytes_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles malwarebytes.Click
         Dim file As String = ""
         If findArchitecture() = 64 Then
-            file = "C:\Program Files (x86)\Malwarebytes' Anti-Malware\mbam.exe"
+            file = "%HOMEDRIVE%\Program Files (x86)\Malwarebytes' Anti-Malware\mbam.exe"
         ElseIf findArchitecture() = 32 Then
-            file = "C:\Program Files\Malwarebytes' Anti-Malware\mbam.exe"
+            file = "%HOMEDRIVE%\Program Files\Malwarebytes' Anti-Malware\mbam.exe"
         End If
         If System.IO.File.Exists(file) = True Then
             Dim updateinfo As New ProcessStartInfo
@@ -27,7 +38,7 @@
             updateProcess.EnableRaisingEvents = True
             AddHandler updateProcess.Exited, AddressOf malwarebytesScan
         Else
-            Dim address As String = "http://restech.niu.edu/malwarebytes.exe"
+            Dim address As String = serverSelect & "malwarebytes.exe"
             Dim fileDownload As String = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\mb.exe"
             My.Computer.Network.DownloadFile(address, fileDownload, "", "", True, 10, True)
             Process.Start(fileDownload)
@@ -37,9 +48,9 @@
     Private Sub malwarebytesScan()
         Dim path As String = ""
         If findArchitecture() = 64 Then
-            path = "C:\Program Files (x86)\Malwarebytes' Anti-Malware"
+            path = "%HOMEDRIVE%\Program Files (x86)\Malwarebytes' Anti-Malware"
         ElseIf findArchitecture() = 32 Then
-            path = "C:\Program Files\Malwarebytes' Anti-Malware"
+            path = "%HOMEDRIVE%\Program Files\Malwarebytes' Anti-Malware"
         End If
         Dim scan As New ProcessStartInfo
         scan.FileName = path & "\mbam.exe"
@@ -50,18 +61,18 @@
     'SPYBOT
     Private Sub spybot_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles spybot.Click
         Dim path As String = ""
-        Dim address As String = "http://restech.niu.edu/spybot.exe"
+        Dim address As String = serverSelect & "spybot.exe"
         Dim file As String = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\spybot.exe"
         If findArchitecture() = 64 Then
-            path = "C:\Program Files (x86)\Spybot - Search & Destroy\SpyBotSD.exe"
+            path = "%HOMEDRIVE%\Program Files (x86)\Spybot - Search & Destroy\SpyBotSD.exe"
         Else
-            path = "C:\Program Files\Spybot - Search & Destroy\SpyBotSD.exe"
+            path = "%HOMEDRIVE%\Program Files\Spybot - Search & Destroy\SpyBotSD.exe"
         End If
         If System.IO.File.Exists(path) = True Then
             If findArchitecture() = 64 Then
-                Process.Start("C:\Program Files (x86)\Spybot - Search & Destroy\unins000.exe")
+                Process.Start("%HOMEDRIVE%\Program Files (x86)\Spybot - Search & Destroy\unins000.exe")
             Else
-                Process.Start("C:\Program Files\Spybot - Search & Destroy\unins000.exe")
+                Process.Start("%HOMEDRIVE%\Program Files\Spybot - Search & Destroy\unins000.exe")
             End If
             Dim callInstall As Process = System.Diagnostics.Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\spybot_run.exe")
             callInstall.EnableRaisingEvents = True
@@ -109,12 +120,12 @@
 
     'SUPER-ANTI-SPYWARE
     Private Sub superantispyware_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles superantispyware.Click
-        Dim path As String = "C:\Program Files\Superantispyware"
+        Dim path As String = "%HOMEDRIVE%\Program Files\Superantispyware"
         If isInstalled(path) = "yup" Then
             Process.Start(path & "\SUPERAntiSpyware.exe")
             Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\superantispyware_run.exe")
         ElseIf isInstalled(path) = "nope" Then
-            Dim address As String = "http://restech.niu.edu/sas.exe"
+            Dim address As String = serverSelect & "sas.exe"
             Dim file As String = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\sas.exe"
             My.Computer.Network.DownloadFile(address, file, "", "", True, 10, True)
             Process.Start(file)
@@ -137,7 +148,7 @@
     End Sub
 
     Private Sub kaspersky_removal_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles kaspersky_removal.Click
-        Dim address As String = "http://restech.niu.edu/krt.exe"
+        Dim address As String = serverSelect & "krt.exe"
         Dim file As String = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\krt.exe"
         My.Computer.Network.DownloadFile(address, file, "", "", True, 10, True)
         Process.Start(file)
@@ -145,26 +156,15 @@
     End Sub
 
     Private Sub mcafee_product_removal_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mcafee_product_removal.Click
-        Dim address As String = "http://restech.niu.edu/mcpr.exe"
+        Dim address As String = serverSelect & "mcpr.exe"
         Dim file As String = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\mcpr.exe"
         My.Computer.Network.DownloadFile(address, file, "", "", True, 10, True)
         Process.Start(file)
     End Sub
 
     Private Sub avg_removal_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles avg_removal.Click
+        'Send to AVG uninstaller Webpage
         Process.Start("http://www.avg.com/us-en/utilities")
-        'Dim address As String = ""
-        'Dim file As String = ""
-        ''If findArchitecture() = 64 Then
-        'address = "http://download.avg.com/filedir/util/avg_arm_sup_____.dir/avgremover.exe"
-        'file = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\avg_removerx64.exe"
-        'End If
-        'If findArchitecture() = 32 Then
-        'address = "http://download.avg.com/filedir/util/avg_arm_sup_____.dir/avgremover.exe"
-        'file = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\avg_removerx86.exe"
-        'End If
-        'My.Computer.Network.DownloadFile(address, file, "", "", True, 10, True)
-        'Process.Start(file)
     End Sub
 
     Private Sub trendmicro_removal_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles trendmicro_removal.Click
@@ -190,11 +190,8 @@
     End Sub
 
     Private Sub avast_removal_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles avast_removal.Click
+        'Send to AVAST Uninstaller Webpage
         Process.Start("http://www.avast.com/uninstall-utility")
-        'Dim address As String = "http://files.avast.com/files/eng/aswclear.exe"
-        'Dim file As String = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\avast_removal.exe"
-        'My.Computer.Network.DownloadFile(address, file, "", "", True, 10, True)
-        'Process.Start(file)
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OsVersion.Click
@@ -205,7 +202,7 @@
 
     '################################  OS INFORMATION FUNCTIONS #######################
     Private Function findArchitecture()
-        Dim dir As New IO.DirectoryInfo("C:\Program Files (x86)")
+        Dim dir As New IO.DirectoryInfo("%HOMEDRIVE%\Program Files (x86)")
         Dim bit As Integer = 0
         If dir.Exists Then
             bit = 64
@@ -254,9 +251,9 @@
     Private Sub ccleaner_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ccleaner.Click
         Dim path As String = ""
         If findArchitecture() = 64 Then
-            path = "C:\Program Files (x86)\CCleaner"
+            path = "%HOMEDRIVE%\Program Files (x86)\CCleaner"
         ElseIf findArchitecture() = 32 Then
-            path = "C:\Program Files\CCleaner"
+            path = "%HOMEDRIVE%\Program Files\CCleaner"
         End If
         If isInstalled(path) = "yup" Then
             Dim runInfo As New ProcessStartInfo
@@ -266,7 +263,7 @@
             ccleanerRun.EnableRaisingEvents = True
             AddHandler ccleanerRun.Exited, AddressOf ccleanerFinished
         ElseIf isInstalled(path) = "nope" Then
-            Dim address As String = "http://restech.niu.edu/ccleaner.exe"
+            Dim address As String = serverSelect & "ccleaner.exe"
             Dim file As String = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\ccln.exe"
             My.Computer.Network.DownloadFile(address, file, "", "", True, 10, True)
             Process.Start(file)
@@ -278,9 +275,9 @@
     Private Sub runCCleaner()
         Dim path As String = ""
         If findArchitecture() = 64 Then
-            path = "C:\Program Files (x86)\CCleaner"
+            path = "%HOMEDRIVE%\Program Files (x86)\CCleaner"
         ElseIf findArchitecture() = 32 Then
-            path = "C:\Program Files\CCleaner"
+            path = "%HOMEDRIVE%\Program Files\CCleaner"
         End If
         Dim runInfo As New ProcessStartInfo
         runInfo.FileName = path & "\ccleaner.exe"
@@ -296,7 +293,7 @@
     '###############################  MISC TOOLS  #################################
     'MCAFEE INSTALL
     Private Sub mcafee_install_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mcafee_install.Click
-        Dim address As String = "http://restech.niu.edu/mcafee.exe"
+        Dim address As String = "http://restech.niu.edu/mcafee.exe"                 'Keep this in restech since its never updated anyways
         Dim file As String = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\mcafee.exe"
         My.Computer.Network.DownloadFile(address, file, "", "", True, 10, True)
         Process.Start(file)
@@ -306,14 +303,14 @@
     Private Sub nac_install_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles nac_install.Click
         Dim path As String = ""
         If findArchitecture() = 64 Then
-            path = "C:\Program Files (x86)\Cisco\Cisco NAC Agent"
+            path = "%HOMEDRIVE%\Program Files (x86)\Cisco\Cisco NAC Agent"
         ElseIf findArchitecture() = 32 Then
-            path = "C:\Program Files\Cisco\Cisco NAC Agent"
+            path = "%HOMEDRIVE%\Program Files\Cisco\Cisco NAC Agent"
         End If
         If isInstalled(path) = "yup" Then
             MessageBox.Show("Cisco NAC is currently installed.  Please run the removal tool first.")
         ElseIf isInstalled(path) = "nope" Then
-            Dim address As String = "http://restech.niu.edu/nac.msi"
+            Dim address As String = "http://restech.niu.edu/nac.msi"                    'Keep this in restech since its maintained by NIU
             Dim file As String = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\nac.msi"
             My.Computer.Network.DownloadFile(address, file, "", "", True, 10, True)
             Process.Start(file)
@@ -328,18 +325,18 @@
         Dim file As String = ""
         If OS.Contains("XP") = False Then
             If findArchitecture() = 64 Then
-                address = "http://restech.niu.edu/mse7x64.exe"
+                address = serverSelect & "mse7x64.exe"
                 file = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\mse7x64.exe"
             End If
             If findArchitecture() = 32 Then
-                address = "http://restech.niu.edu/mse7x86.exe"
+                address = serverSelect & "mse7x86.exe"
                 file = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\mse7x86.exe"
             End If
             My.Computer.Network.DownloadFile(address, file, "", "", True, 10, True)
             Process.Start(file)
             Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\msse_install.exe")
         Else
-            address = "http://restech.niu.edu/msexp.exe"
+            address = serverSelect & "msexp.exe"
             file = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\msexp.exe"
             My.Computer.Network.DownloadFile(address, file, "", "", True, 10, True)
             Process.Start(file)
@@ -364,7 +361,7 @@
             MessageBox.Show("Reset Permissions Does Not Work For Windows 7.")
         Else
             If findArchitecture() = 64 Then
-                If System.IO.File.Exists("C:\Program Files (x86)\Windows Resource Kits\Tools\subinacl.exe") = True Then
+                If System.IO.File.Exists("%HOMEDRIVE%\Program Files (x86)\Windows Resource Kits\Tools\subinacl.exe") = True Then
                     Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\reset_permissions64.bat")
                 Else
                     Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\subinacl.msi")
@@ -373,7 +370,7 @@
                     AddHandler resetPermissions.Exited, AddressOf resetRun
                 End If
             Else
-                If System.IO.File.Exists("C:\Program Files\Windows Resource Kits\Tools\subinacl.exe") = True Then
+                If System.IO.File.Exists("%HOMEDRIVE%\Program Files\Windows Resource Kits\Tools\subinacl.exe") = True Then
                     Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\reset_permissions32.bat")
                 Else
                     Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\subinacl.msi")
@@ -401,7 +398,8 @@
     'SYSTEM FILE CHECKER
     Private Sub systemfilecheck_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles systemfilecheck.Click
         Dim runInfo As New ProcessStartInfo
-        runInfo.FileName = "C:\windows\system32\sfc.exe"
+        'runInfo.FileName = "C:\windows\system32\sfc.exe"
+        runInfo.FileName = "%WINDIR%\System32\sfc.exe"      'Use Enviormental variable instead
         runInfo.Arguments = "/scannow"
         Dim checkRun As Process = System.Diagnostics.Process.Start(runInfo)
         checkRun.EnableRaisingEvents = True
@@ -414,5 +412,35 @@
 
     Private Sub niu_mcafee_removal_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles niu_mcafee_removal.Click
         MessageBox.Show("This feature is not available in this BETA.  :(")
+    End Sub
+    Private Sub nextWindow_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Next1.Click
+        Me.Hide()
+        Restool_f2.Show()
+    End Sub
+
+    Private Sub ServerList1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ServerList1.SelectedIndexChanged
+        If ServerList1.SelectedIndex.Equals(0) Then
+            serverSelect = server1
+        End If
+        If ServerList1.SelectedIndex.Equals(1) Then
+            serverSelect = server2
+        End If
+    End Sub
+    Private Sub checkServerStatus(ByVal server As String, ByRef serverTitle As Label)
+        Dim url As New System.Uri(server)
+        Dim req As System.Net.WebRequest
+        req = System.Net.WebRequest.Create(url)
+        Dim resp As System.Net.WebResponse
+        Try
+            resp = req.GetResponse()
+            resp.Close()
+            req = Nothing
+            serverTitle.Text = "Live"
+            serverTitle.ForeColor = Color.Green
+        Catch ex As Exception
+            req = Nothing
+            serverTitle.Text = "Down"
+            serverTitle.ForeColor = Color.Red
+        End Try
     End Sub
 End Class
