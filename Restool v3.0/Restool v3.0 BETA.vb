@@ -5,6 +5,8 @@
     Public serverSelect As String                   'This is the server currently selected
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         scriptsCheck()
+        'Set IP in Title
+        Me.Text = "ResTool v3.0.1 BETA - IP: " & System.Net.Dns.GetHostByName(System.Net.Dns.GetHostName().ToString).AddressList(0).ToString()
         'Load Server Options
         ServerList1.Items.AddRange(New Object() {"Restech", "Test"})
         ServerList1.SelectedIndex = 0                   ' Set Restech to be default server
@@ -18,8 +20,7 @@
     Private Sub combofix_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles combofix.Click
         Dim address As String = serverSelect & "cf.exe"
         Dim file As String = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\cf.exe"
-        My.Computer.Network.DownloadFile(address, file, "", "", True, 10, True)
-        Process.Start(file)
+        fileStarter(address, file, "cf.exe", )
     End Sub
     'MALWAREBYTES
     Private Sub malwarebytes_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles malwarebytes.Click
@@ -69,6 +70,7 @@
             path = "%HOMEDRIVE%\Program Files\Spybot - Search & Destroy\SpyBotSD.exe"
         End If
         If System.IO.File.Exists(path) = True Then
+            ' Check Architecture for existance and then uninstall if uninstaller exists
             If findArchitecture() = 64 Then
                 Process.Start("%HOMEDRIVE%\Program Files (x86)\Spybot - Search & Destroy\unins000.exe")
             Else
@@ -78,9 +80,8 @@
             callInstall.EnableRaisingEvents = True
             AddHandler callInstall.Exited, AddressOf installSpybot
         Else
-            My.Computer.Network.DownloadFile(address, file, "", "", True, 10, True)
-            Process.Start(file)
-            Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\spybot_install.exe")
+            ' Otherwise Download and install
+            fileStarter(address, file, "spybot.exe", "spybot_install.exe")
         End If
     End Sub
     Private Sub installSpybot()
@@ -90,14 +91,14 @@
     End Sub
     'ESET
     Private Sub eset_online_scanner_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles eset_online_scanner.Click
+        ' Download Eset
         Dim address As String = "http://download.eset.com/special/eos/esetsmartinstaller_enu.exe"
         Dim file As String = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\eset.exe"
-        My.Computer.Network.DownloadFile(address, file, "", "", True, 10, True)
-        Process.Start(file)
-        Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\eset_run.exe")
+
+        fileStarter(address, file, "eset.exe", "eset_run.exe")
     End Sub
 
-    'FSECURE
+    'FSECURE    - This is a useless app. Need to remove soon.
     Private Sub Fsecure_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Fsecure.Click
         Process.Start("http://www.f-secure.com/en_EMEA-Labs/security-threats/tools/online-scanner")
     End Sub
@@ -106,16 +107,18 @@
     Private Sub Housecall_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Housecall.Click
         Dim address As String = ""
         Dim file As String = ""
+        Dim fileName As String = ""
         If findArchitecture() = 64 Then
             address = "http://go.trendmicro.com/housecall7/HousecallLauncher64.exe"
             file = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\housecall64bit.exe"
+            fileName = "housecall64bit.exe"
         End If
         If findArchitecture() = 32 Then
             address = "http://go.trendmicro.com/housecall7/HousecallLauncher.exe"
             file = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\housecall32bit.exe"
+            fileName = "housecall32bit.exe"
         End If
-        My.Computer.Network.DownloadFile(address, file, "", "", True, 10, True)
-        Process.Start(file)
+        fileStarter(address, file, fileName, )
     End Sub
 
     'SUPER-ANTI-SPYWARE
@@ -127,9 +130,10 @@
         ElseIf isInstalled(path) = "nope" Then
             Dim address As String = serverSelect & "sas.exe"
             Dim file As String = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\sas.exe"
-            My.Computer.Network.DownloadFile(address, file, "", "", True, 10, True)
-            Process.Start(file)
-            Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\superantispyware_install.exe")
+            fileStarter(address, file, "sas.exe", "superantispyware_install.exe")
+            'My.Computer.Network.DownloadFile(address, file, "", "", True, 10, True)
+            'Process.Start(file)
+            'Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\superantispyware_install.exe")
         End If
     End Sub
 
@@ -265,11 +269,77 @@
         ElseIf isInstalled(path) = "nope" Then
             Dim address As String = serverSelect & "ccleaner.exe"
             Dim file As String = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\ccln.exe"
-            My.Computer.Network.DownloadFile(address, file, "", "", True, 10, True)
-            Process.Start(file)
+            Try
+                My.Computer.Network.DownloadFile(address, file, "", "", True, 10, True)
+            Catch ex As Exception
+                MsgBox("File Download cancelled")
+                Return
+            End Try
+            Try
+                Process.Start(file)
+            Catch ex As Exception
+                MsgBox("Epic Fail. Program can't Install or Run")
+                Return
+            End Try
             Dim installCCleaner As Process = System.Diagnostics.Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\ccleaner.exe")
             installCCleaner.EnableRaisingEvents = True
             AddHandler installCCleaner.Exited, AddressOf runCCleaner
+        End If
+    End Sub
+    Private Sub fileStarter(ByRef address As String, ByRef file As String, ByRef fileName As String, Optional ByRef scriptName As String = Nothing)
+        ' Download File
+        Try
+            My.Computer.Network.DownloadFile(address, file, "", "", True, 10, True)
+        Catch ex As Exception
+            MsgBox("Epic Fail #1. Can't Download File")
+            Return
+        End Try
+
+        If String.IsNullOrEmpty(scriptName) Then
+            ' Setup new Process configs
+            Dim processStartInfo As System.Diagnostics.ProcessStartInfo
+
+            ' Eset Script and download storage
+            processStartInfo = New System.Diagnostics.ProcessStartInfo()
+            processStartInfo.WorkingDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
+            processStartInfo.FileName = fileName
+
+            ' Check version of Windows and ask for admin if higher then Vista
+            If System.Environment.OSVersion.Version.Major >= 6 Then ' Windows Vista or higher
+                processStartInfo.Verb = "runas"
+            Else
+                ' No need to prompt to run as admin
+            End If
+            ' Start Eset and script
+            Try
+                System.Diagnostics.Process.Start(processStartInfo)
+            Catch ex As Exception
+                MsgBox("Epic Fail #2. Can't Run the Program")
+                Return
+            End Try
+        Else
+            ' Setup new Process configs
+            Dim processStartInfo As System.Diagnostics.ProcessStartInfo
+            Dim processStartInfo_script As System.Diagnostics.ProcessStartInfo
+
+            ' Eset Script and download storage
+            processStartInfo = New System.Diagnostics.ProcessStartInfo()
+            processStartInfo.WorkingDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
+            processStartInfo.FileName = fileName
+            processStartInfo_script = New System.Diagnostics.ProcessStartInfo()
+            processStartInfo_script.WorkingDirectory = Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts"
+            processStartInfo_script.FileName = scriptName
+
+            ' Check version of Windows and ask for admin if higher then Vista
+            If System.Environment.OSVersion.Version.Major >= 6 Then ' Windows Vista or higher
+                processStartInfo.Verb = "runas"
+                processStartInfo_script.Verb = "runas"
+            Else
+                ' No need to prompt to run as admin
+            End If
+            ' Start Eset and script
+            System.Diagnostics.Process.Start(processStartInfo)
+            System.Diagnostics.Process.Start(processStartInfo_script)
         End If
     End Sub
     Private Sub runCCleaner()

@@ -1,6 +1,6 @@
 Restool v3.0
 
-v3.0.1 Changes [2/17/2012]
+v3.0.1 Changes [2/24/2012]
 
  - Converted to VB 2010 Project
  - Now using Enviormental Variables with path names
@@ -8,8 +8,12 @@ v3.0.1 Changes [2/17/2012]
 	+ (Restech) default server, manually updated
 	+ (Test) test server, apps checked for updates daily
  - Server Status text added
-
-
+ - Eset will now go past the Start button in Vista and XP so it is fully automated. Issue was with The Script and eset.exe not getting administrator permissions.
+ - Catching exceptions when it can't download and when program has issues installing/running script
+	+ Combofix ok
+	+ Spybot Fresh install - ok, Uninstall and Installed - wip
+	+ Eset ok
+	+ Trend Micro Housecall appears to be a lost cause. _IEAttach function cannot detect the window. No solutions for problem online
+	+ SUPER AntiSpyware install - ok, Installed - wip
 TODO's
- - Catch Exceptions when Downloads fail
- - Get ESET past the Start Button and to start scanning
+ - Catch Exceptions when Downloads fail 
