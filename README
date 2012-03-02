@@ -1,5 +1,17 @@
 Restool v3.0
 
+v3.0.1 Changes [3/1/2012]
+
+ - Bitdefender URL updated
+ - AVG now always downloads from Test server, after detecting architecture
+ - More exception catching
+	+ Norton Removal Tool + Script - ok
+	+ Kaspersky Removal Tool - ok (Evan mystery script needs to be checked)
+	+ McAfee Removal tool - ok
+	+ AVG Removal Tool - ok
+	+ TrendMicro Removal Tool - ok
+
+
 v3.0.1 Changes [2/24/2012]
 
  - Converted to VB 2010 Project
@@ -15,5 +27,7 @@ v3.0.1 Changes [2/24/2012]
 	+ Eset ok
 	+ Trend Micro Housecall appears to be a lost cause. _IEAttach function cannot detect the window. No solutions for problem online
 	+ SUPER AntiSpyware install - ok, Installed - wip
+
+
 TODO's
  - Catch Exceptions when Downloads fail 

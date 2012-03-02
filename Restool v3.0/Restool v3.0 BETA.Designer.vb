@@ -53,7 +53,6 @@ Partial Class Form1
         Me.reset_permissions = New System.Windows.Forms.Button()
         Me.winsock = New System.Windows.Forms.Button()
         Me.ccleaner = New System.Windows.Forms.Button()
-        Me.Next1 = New System.Windows.Forms.Button()
         Me.ServerList1 = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -372,15 +371,6 @@ Partial Class Form1
         Me.ccleaner.Text = "Ccleaner"
         Me.ccleaner.UseVisualStyleBackColor = True
         '
-        'Next1
-        '
-        Me.Next1.Location = New System.Drawing.Point(431, 402)
-        Me.Next1.Name = "Next1"
-        Me.Next1.Size = New System.Drawing.Size(75, 23)
-        Me.Next1.TabIndex = 15
-        Me.Next1.Text = "W.I.P."
-        Me.Next1.UseVisualStyleBackColor = True
-        '
         'ServerList1
         '
         Me.ServerList1.FormattingEnabled = True
@@ -446,7 +436,6 @@ Partial Class Form1
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.ServerList1)
-        Me.Controls.Add(Me.Next1)
         Me.Controls.Add(Me.GroupBox6)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox4)
@@ -496,7 +485,6 @@ Partial Class Form1
     Friend WithEvents reset_permissions As System.Windows.Forms.Button
     Friend WithEvents windowsupdatefix As System.Windows.Forms.Button
     Friend WithEvents systemfilecheck As System.Windows.Forms.Button
-    Friend WithEvents Next1 As System.Windows.Forms.Button
     Friend WithEvents ServerList1 As System.Windows.Forms.ComboBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label

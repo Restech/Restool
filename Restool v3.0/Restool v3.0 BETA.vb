@@ -139,58 +139,74 @@
 
     'BITDEFENDER
     Private Sub Bitdefender_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Bitdefender.Click
-        Process.Start("http://www.bitdefender.com/scanner/online/free.html")
+        Process.Start("http://quickscan.bitdefender.com/")
     End Sub
 
     '###############################  REMOVAL TOOLS  ####################################
+    ' Norton Removal tool
     Private Sub norton_removal_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles norton_removal.Click
         Dim address As String = "ftp://ftp.symantec.com/public/english_us_canada/removal_tools/Norton_Removal_Tool.exe"
         Dim file As String = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\nrt.exe"
-        My.Computer.Network.DownloadFile(address, file, "", "", True, 10, True)
-        Process.Start(file)
-        Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\norton_removal.exe")
+        fileStarter(address, file, "nrt.exe", "norton_removal.exe")
     End Sub
 
+    ' Kaspersky Removal Tool
     Private Sub kaspersky_removal_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles kaspersky_removal.Click
         Dim address As String = serverSelect & "krt.exe"
         Dim file As String = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\krt.exe"
         My.Computer.Network.DownloadFile(address, file, "", "", True, 10, True)
-        Process.Start(file)
-        'Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\kaspersky_removal.exe")
+        fileStarter(address, file, "krt.exe", )
+        'Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\kaspersky_removal.exe")  ## Does this script work? Need to ask Evan
     End Sub
 
+    ' McAfee Removal Tool
     Private Sub mcafee_product_removal_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mcafee_product_removal.Click
         Dim address As String = serverSelect & "mcpr.exe"
         Dim file As String = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\mcpr.exe"
-        My.Computer.Network.DownloadFile(address, file, "", "", True, 10, True)
-        Process.Start(file)
+        fileStarter(address, file, "mcpr.exe", )
     End Sub
 
+    ' AVG Removal Tool
     Private Sub avg_removal_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles avg_removal.Click
-        'Send to AVG uninstaller Webpage
-        Process.Start("http://www.avg.com/us-en/utilities")
+        Dim address As String
+        Dim file As String
+        Dim name As String
+        If findArchitecture() = 64 Then
+            address = server2 & "avgr64.exe"
+            file = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\avgr64.exe"
+            name = "avgr64.exe"
+        ElseIf findArchitecture() = 32 Then
+            address = server2 & "avgr86.exe"
+            file = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\avgr86.exe"
+            name = "avgr86.exe"
+        End If
+        fileStarter(address, file, name, )
     End Sub
 
+    ' TrendMicro Removal Tool
     Private Sub trendmicro_removal_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles trendmicro_removal.Click
         Dim address As String = ""
         Dim file As String = ""
+        Dim name As String = ""
         Dim OS As String = GetOSVersion()
         If OS.Contains("XP") = False Then
             If findArchitecture() = 64 Then
                 address = "http://solutionfile.trendmicro.com/solutionfile/EN-1037161/64bit.exe"
                 file = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\tmdiag_64.exe"
+                name = "tmdiag_64.exe"
             End If
             If findArchitecture() = 32 Then
                 address = "http://solutionfile.trendmicro.com/solutionfile/EN-1037161/32bit.exe"
-                file = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\tmdiag_32.exe.exe"
+                file = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\tmdiag_32.exe"
+                name = "tmdiag_32.exe"
             End If
         Else
             address = "http://solutionfile.trendmicro.com/solutionfile/EN-1037161/32bit.exe"
             file = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\tmdiag_xp.exe"
+            name = "tmdiag_xp.exe"
         End If
 
-        My.Computer.Network.DownloadFile(address, file, "", "", True, 10, True)
-        Process.Start(file)
+        fileStarter(address, file, name, )
     End Sub
 
     Private Sub avast_removal_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles avast_removal.Click
@@ -291,7 +307,7 @@
         Try
             My.Computer.Network.DownloadFile(address, file, "", "", True, 10, True)
         Catch ex As Exception
-            MsgBox("Epic Fail #1. Can't Download File")
+            MsgBox("ResFail #1. Can't Download File")
             Return
         End Try
 
@@ -299,7 +315,7 @@
             ' Setup new Process configs
             Dim processStartInfo As System.Diagnostics.ProcessStartInfo
 
-            ' Eset Script and download storage
+            ' Script and download storage
             processStartInfo = New System.Diagnostics.ProcessStartInfo()
             processStartInfo.WorkingDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
             processStartInfo.FileName = fileName
@@ -310,11 +326,11 @@
             Else
                 ' No need to prompt to run as admin
             End If
-            ' Start Eset and script
+            ' Start Process and script
             Try
                 System.Diagnostics.Process.Start(processStartInfo)
             Catch ex As Exception
-                MsgBox("Epic Fail #2. Can't Run the Program")
+                MsgBox("ResFail #2. Can't Run the Program (w/o Script)")
                 Return
             End Try
         Else
@@ -322,7 +338,7 @@
             Dim processStartInfo As System.Diagnostics.ProcessStartInfo
             Dim processStartInfo_script As System.Diagnostics.ProcessStartInfo
 
-            ' Eset Script and download storage
+            ' Script and download storage
             processStartInfo = New System.Diagnostics.ProcessStartInfo()
             processStartInfo.WorkingDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
             processStartInfo.FileName = fileName
@@ -337,9 +353,17 @@
             Else
                 ' No need to prompt to run as admin
             End If
-            ' Start Eset and script
-            System.Diagnostics.Process.Start(processStartInfo)
-            System.Diagnostics.Process.Start(processStartInfo_script)
+            ' Start process and script
+            Try
+                System.Diagnostics.Process.Start(processStartInfo)
+            Catch ex As Exception
+                MsgBox("ResFail #3. Can't run the Program (w/ Script)")
+            End Try
+            Try
+                System.Diagnostics.Process.Start(processStartInfo_script)
+            Catch ex As Exception
+                MsgBox("ResFail #4. Can't run the Script")
+            End Try
         End If
     End Sub
     Private Sub runCCleaner()
@@ -483,7 +507,7 @@
     Private Sub niu_mcafee_removal_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles niu_mcafee_removal.Click
         MessageBox.Show("This feature is not available in this BETA.  :(")
     End Sub
-    Private Sub nextWindow_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Next1.Click
+    Private Sub nextWindow_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Me.Hide()
         Restool_f2.Show()
     End Sub
