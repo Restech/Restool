@@ -503,13 +503,8 @@
         Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\sfc_smallerizer.bat")
     End Sub
 
-
     Private Sub niu_mcafee_removal_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles niu_mcafee_removal.Click
         MessageBox.Show("This feature is not available in this BETA.  :(")
-    End Sub
-    Private Sub nextWindow_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        Me.Hide()
-        Restool_f2.Show()
     End Sub
 
     Private Sub ServerList1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ServerList1.SelectedIndexChanged
