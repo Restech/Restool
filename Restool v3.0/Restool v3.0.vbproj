@@ -96,12 +96,6 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Restool_f2.Designer.vb">
-      <DependentUpon>Restool_f2.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Restool_f2.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Restool v3.0 BETA.Designer.vb">
       <DependentUpon>Restool v3.0 BETA.vb</DependentUpon>
     </Compile>
@@ -133,9 +127,6 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Restool_f2.resx">
-      <DependentUpon>Restool_f2.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
