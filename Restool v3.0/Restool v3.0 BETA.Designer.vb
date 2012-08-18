@@ -61,6 +61,7 @@ Partial Class Form1
         Me.Status2 = New System.Windows.Forms.Label()
         Me.IPAddress = New System.Windows.Forms.Label()
         Me.FixIt = New System.Windows.Forms.Button()
+        Me.VersionOfWindows = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -445,11 +446,21 @@ Partial Class Form1
         Me.FixIt.Text = "The Fix It Button"
         Me.FixIt.UseVisualStyleBackColor = True
         '
+        'VersionOfWindows
+        '
+        Me.VersionOfWindows.AutoSize = True
+        Me.VersionOfWindows.Location = New System.Drawing.Point(348, 416)
+        Me.VersionOfWindows.Name = "VersionOfWindows"
+        Me.VersionOfWindows.Size = New System.Drawing.Size(101, 13)
+        Me.VersionOfWindows.TabIndex = 24
+        Me.VersionOfWindows.Text = "Version of Windows"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(521, 437)
+        Me.Controls.Add(Me.VersionOfWindows)
         Me.Controls.Add(Me.FixIt)
         Me.Controls.Add(Me.IPAddress)
         Me.Controls.Add(Me.Status2)
@@ -515,5 +526,6 @@ Partial Class Form1
     Friend WithEvents Status2 As System.Windows.Forms.Label
     Friend WithEvents IPAddress As System.Windows.Forms.Label
     Friend WithEvents FixIt As System.Windows.Forms.Button
+    Friend WithEvents VersionOfWindows As System.Windows.Forms.Label
 
 End Class

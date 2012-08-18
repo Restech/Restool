@@ -1,4 +1,9 @@
 Restool v3.0
+v3.0.2 Changes [8/18/2012]
+- Detects the correct OS architecture now.
+- Installs correct version of MSE now.
+- Displays the OS information in the lower right corner of screen.
+
 v3.0.2 Changes [8/17/2012]
 - Malwarebytes Automation Fixed
 - "Fix It Button" added.

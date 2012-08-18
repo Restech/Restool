@@ -26,6 +26,9 @@
         'Check Server Status
         checkServerStatus(server1, Status1)
         checkServerStatus(server2, Status2)
+
+        'Version of Windows
+        VersionOfWindows.Text = findArchitecture() & "-bit Version of " & GetOSVersion()
     End Sub
     '################################ONLINE VIRUS SCANNER FUNCTIONS#######################
     'COMBOFIX
@@ -235,9 +238,8 @@
 
     '################################  OS INFORMATION FUNCTIONS #######################
     Private Function findArchitecture()
-        Dim dir As New IO.DirectoryInfo("%HOMEDRIVE%\Program Files (x86)")
         Dim bit As Integer = 0
-        If dir.Exists Then
+        If IntPtr.Size() = 8 Then
             bit = 64
         Else
             bit = 32
@@ -249,14 +251,14 @@
         Dim osInfo As String = Environment.OSVersion.ToString()
         osInfo = osInfo.Replace("Microsoft Windows NT ", "")
         Dim pos As Integer = osInfo.IndexOf("Service Pack")
-        Dim servicePackInfo As String = osInfo.Substring(pos, 14)
-        servicePackInfo = servicePackInfo.Replace("Service Pack ", "")
+        'Dim servicePackInfo As String = osInfo.Substring(pos, 14)
+        'servicePackInfo = servicePackInfo.Replace("Service Pack ", "")
         If osInfo.StartsWith("5.1") Then
-            Return "Windows XP Service Pack " & servicePackInfo
+            Return "Windows XP" ' & servicePackInfo
         ElseIf osInfo.StartsWith("6.0") Then
-            Return "Windows Vista Service Pack " & servicePackInfo
+            Return "Windows Vista" ' & servicePackInfo
         ElseIf osInfo.StartsWith("6.1") Then
-            Return "Windows 7 Service Pack " & servicePackInfo
+            Return "Windows 7" ' & servicePackInfo
         Else
             Return 0
         End If
@@ -569,4 +571,5 @@
         MessageBox.Show("This feature is not available in this BETA.  :(")
         'Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\overnight.bat")
     End Sub
+
 End Class
