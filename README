@@ -1,4 +1,8 @@
 Restool v3.0
+v3.0.2 Changes [8/17/2012]
+- Malwarebytes Automation Fixed
+- "Fix It Button" added.
+	+ In the future this will automate multiple scans overnight.
 
 v3.0.1 Changes [3/1/2012]
 
