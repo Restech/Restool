@@ -3,6 +3,11 @@ v3.0.2 Changes [8/17/2012]
 - Malwarebytes Automation Fixed
 - "Fix It Button" added.
 	+ In the future this will automate multiple scans overnight.
+- ResTech folder created to store install files on users computer.
+	+ This will make clean up easier.
+	+ Currently ONLY Malwarebytes gets stored here. The rest will be added with the next push.
+	+ This will also be used to store uninstall scripts, so we can implement an uninstall all scans button.
+- Easter egg added, the title bar now displays funny quotes and some helpful hints for the newbies.
 
 v3.0.1 Changes [3/1/2012]
 
