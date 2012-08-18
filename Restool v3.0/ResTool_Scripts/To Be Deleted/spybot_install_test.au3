@@ -1,0 +1,1 @@
+RunWait("spybotsd.exe /SP- /silent /norestart")

@@ -1,0 +1,6 @@
+@echo off
+echo Installing Malwarebytes Please Wait...
+start /wait %userprofile%\desktop\restech\mb.exe /SP- /silent /norestart
+echo Updating Malwarebytes Please Wait...
+start /wait mbam.exe /update
+start mbam.exe /scan -full

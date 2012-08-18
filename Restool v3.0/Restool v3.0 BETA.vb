@@ -3,10 +3,22 @@
     Public server1 As String = "http://restech.niu.edu/"
     Public server2 As String = "http://servx.zapto.org/Restool/apps/"
     Public serverSelect As String                   'This is the server currently selected
+    Private _randomString As String
+
+    Private Property randomString(ByVal p1 As Integer) As String
+        Get
+            Return _randomString
+        End Get
+        Set(ByVal value As String)
+            _randomString = value
+        End Set
+    End Property
+
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         scriptsCheck()
         'Set IP in Title
-        Me.Text = "ResTool v3.0.1 BETA - IP: " & System.Net.Dns.GetHostByName(System.Net.Dns.GetHostName().ToString).AddressList(0).ToString()
+        Me.Text = "ResTool v3.0.2 BETA - " & randomText()
+        IPAddress.Text = "IP: " & System.Net.Dns.GetHostByName(System.Net.Dns.GetHostName().ToString).AddressList(0).ToString()
         'Load Server Options
         ServerList1.Items.AddRange(New Object() {"Restech", "Test"})
         ServerList1.SelectedIndex = 0                   ' Set Restech to be default server
@@ -40,10 +52,11 @@
             AddHandler updateProcess.Exited, AddressOf malwarebytesScan
         Else
             Dim address As String = serverSelect & "malwarebytes.exe"
-            Dim fileDownload As String = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\mb.exe"
+            Dim fileDownload As String = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\ResTech\mb.exe"
+            'Dim fileDownload As String = Environment.CurrentDirectory() & "\Application Files\Install\mb.exe" ##Can be deleted after further testing.
             My.Computer.Network.DownloadFile(address, fileDownload, "", "", True, 10, True)
-            Process.Start(fileDownload)
-            Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\malwarebytes_install.exe")
+            'Process.Start(fileDownload) ##Can be deleted after further testing.
+            Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\mwb.bat")
         End If
     End Sub
     Private Sub malwarebytesScan()
@@ -85,7 +98,7 @@
         End If
     End Sub
     Private Sub installSpybot()
-        Dim file As String = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\spybot.exe"
+        Dim file As String = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\ResTech\spybot.exe"
         Process.Start(file)
         Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\spybot_install.exe")
     End Sub
@@ -531,5 +544,29 @@
             serverTitle.Text = "Down"
             serverTitle.ForeColor = Color.Red
         End Try
+    End Sub
+
+    Private Function randomText() As String
+        Dim randomString(0 To 9) As String
+        Dim rndnumber As Random
+        Dim number As Integer
+        rndnumber = New Random
+        number = rndnumber.Next(1, 9)
+        randomString(1) = "Now With Swag!"
+        randomString(2) = "Sub-par Just Became Par!"
+        randomString(3) = "This Is Why We Can't Have Nice Things!"
+        randomString(4) = "Byron Needs A Finger Monkey!"
+        randomString(5) = "CHECK THE KNOWLEDGE BASE!"
+        randomString(6) = "Don't Let Super Anti-Spyware Delete Me!"
+        randomString(7) = "Don't Forget To Check The Proxy!"
+        randomString(8) = "Don't Forget To Check The Voicemail!"
+        randomString(9) = "Now With Awesome Sauce!"
+        Return randomString(number)
+        Throw New NotImplementedException
+    End Function
+
+    Private Sub FixIt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FixIt.Click
+        MessageBox.Show("This feature is not available in this BETA.  :(")
+        'Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\overnight.bat")
     End Sub
 End Class

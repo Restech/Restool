@@ -59,6 +59,8 @@ Partial Class Form1
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Status1 = New System.Windows.Forms.Label()
         Me.Status2 = New System.Windows.Forms.Label()
+        Me.IPAddress = New System.Windows.Forms.Label()
+        Me.FixIt = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -145,7 +147,7 @@ Partial Class Form1
         Me.GroupBox1.Size = New System.Drawing.Size(313, 152)
         Me.GroupBox1.TabIndex = 9
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Malware/Virus Cleaning Tools"
+        Me.GroupBox1.Text = "Malware/Virus Removal Tools"
         '
         'Bitdefender
         '
@@ -374,7 +376,7 @@ Partial Class Form1
         'ServerList1
         '
         Me.ServerList1.FormattingEnabled = True
-        Me.ServerList1.Location = New System.Drawing.Point(184, 406)
+        Me.ServerList1.Location = New System.Drawing.Point(184, 388)
         Me.ServerList1.MaxDropDownItems = 2
         Me.ServerList1.Name = "ServerList1"
         Me.ServerList1.Size = New System.Drawing.Size(121, 21)
@@ -383,7 +385,7 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(139, 409)
+        Me.Label1.Location = New System.Drawing.Point(140, 388)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(38, 13)
         Me.Label1.TabIndex = 17
@@ -425,11 +427,31 @@ Partial Class Form1
         Me.Status2.TabIndex = 21
         Me.Status2.Text = "Status"
         '
+        'IPAddress
+        '
+        Me.IPAddress.AutoSize = True
+        Me.IPAddress.Location = New System.Drawing.Point(143, 412)
+        Me.IPAddress.Name = "IPAddress"
+        Me.IPAddress.Size = New System.Drawing.Size(20, 13)
+        Me.IPAddress.TabIndex = 22
+        Me.IPAddress.Text = "IP:"
+        '
+        'FixIt
+        '
+        Me.FixIt.Location = New System.Drawing.Point(348, 385)
+        Me.FixIt.Name = "FixIt"
+        Me.FixIt.Size = New System.Drawing.Size(135, 24)
+        Me.FixIt.TabIndex = 23
+        Me.FixIt.Text = "The Fix It Button"
+        Me.FixIt.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(521, 437)
+        Me.Controls.Add(Me.FixIt)
+        Me.Controls.Add(Me.IPAddress)
         Me.Controls.Add(Me.Status2)
         Me.Controls.Add(Me.Status1)
         Me.Controls.Add(Me.Label3)
@@ -491,5 +513,7 @@ Partial Class Form1
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Status1 As System.Windows.Forms.Label
     Friend WithEvents Status2 As System.Windows.Forms.Label
+    Friend WithEvents IPAddress As System.Windows.Forms.Label
+    Friend WithEvents FixIt As System.Windows.Forms.Button
 
 End Class

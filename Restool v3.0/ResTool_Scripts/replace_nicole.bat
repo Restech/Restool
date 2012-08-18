@@ -1,0 +1,6 @@
+@echo off
+echo Running Malwarebytes Please Wait...
+start /wait mwb.bat
+
+echo Running Spybot S&D Please Wait...
+start /wait spybot.bat
