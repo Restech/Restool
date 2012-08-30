@@ -159,14 +159,23 @@
     End Sub
 
     '###############################  REMOVAL TOOLS  ####################################
-    ' Norton Removal tool
+
+    '##################################################################################
+    '           Norton Removal Tool
+    'Use:       Remove Norton
+    'Returns:   Nothing, just uninstalls the program.
+    '##################################################################################
     Private Sub norton_removal_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles norton_removal.Click
         Dim address As String = "ftp://ftp.symantec.com/public/english_us_canada/removal_tools/Norton_Removal_Tool.exe"
         Dim file As String = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\nrt.exe"
         fileStarter(address, file, "nrt.exe", "norton_removal.exe")
     End Sub
 
-    ' Kaspersky Removal Tool
+    '##################################################################################
+    '           Kaspersky Removal Tool
+    'Use:       Remove Kaspersky
+    'Returns:   Nothing, just uninstalls the program.
+    '##################################################################################
     Private Sub kaspersky_removal_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles kaspersky_removal.Click
         Dim address As String = serverSelect & "krt.exe"
         Dim file As String = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\krt.exe"
@@ -175,14 +184,22 @@
         'Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\kaspersky_removal.exe")  ## Does this script work? Need to ask Evan
     End Sub
 
-    ' McAfee Removal Tool
+    '##################################################################################
+    '           McAfee Removal Tool
+    'Use:       Remove McAfee (NOT ENTERPRISE 8.7!)
+    'Returns:   Nothing, just uninstalls the program.
+    '##################################################################################
     Private Sub mcafee_product_removal_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mcafee_product_removal.Click
         Dim address As String = serverSelect & "mcpr.exe"
         Dim file As String = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\mcpr.exe"
         fileStarter(address, file, "mcpr.exe", )
     End Sub
 
-    ' AVG Removal Tool
+    '##################################################################################
+    '           AVG Removal Tool
+    'Use:       Remove AVG
+    'Returns:   Nothing, just uninstalls the program.
+    '##################################################################################
     Private Sub avg_removal_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles avg_removal.Click
         Dim address As String
         Dim file As String
@@ -199,7 +216,11 @@
         fileStarter(address, file, name, )
     End Sub
 
-    ' TrendMicro Removal Tool
+    '##################################################################################
+    '           Trend Micro Removal Tool
+    'Use:       Remove Trend Micro
+    'Returns:   Nothing, just uninstalls the program.
+    '##################################################################################
     Private Sub trendmicro_removal_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles trendmicro_removal.Click
         Dim address As String = ""
         Dim file As String = ""
@@ -225,18 +246,34 @@
         fileStarter(address, file, name, )
     End Sub
 
+    '##################################################################################
+    '           Avast Removal Tool
+    'Use:       Remove Avast
+    'Returns:   Nothing, just uninstalls the program.
+    '##################################################################################
     Private Sub avast_removal_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles avast_removal.Click
         'Send to AVAST Uninstaller Webpage
         Process.Start("http://www.avast.com/uninstall-utility")
     End Sub
 
+    '################################  OS INFORMATION FUNCTIONS #######################
+
+    '##################################################################################
+    '           OsVersion
+    'Use:       Show the OS Version
+    'Returns:   Nothing, just displays the OS version in a message box.
+    'ToDo:      Remove this, it isn't needed anymore.
+    '##################################################################################
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OsVersion.Click
         Dim version As String = GetOSVersion()
         MessageBox.Show(version)
     End Sub
 
-
-    '################################  OS INFORMATION FUNCTIONS #######################
+    '##################################################################################
+    '           findArchitecture
+    'Use:       Detects if it's 32-bit or 64-bit.
+    'Returns:   Architecture type as an int.
+    '##################################################################################
     Private Function findArchitecture()
         Dim bit As Integer = 0
         If IntPtr.Size() = 8 Then
@@ -246,7 +283,12 @@
         End If
         Return bit
     End Function
-
+    '##################################################################################
+    '           GetOSVersion
+    'Use:       Detects the version of the operating system.
+    'Returns:   Version of the operation system as a string.
+    'ToDo:      Should show service pack information in the future.
+    '##################################################################################
     Private Function GetOSVersion()
         Dim osInfo As String = Environment.OSVersion.ToString()
         osInfo = osInfo.Replace("Microsoft Windows NT ", "")
@@ -263,7 +305,12 @@
             Return 0
         End If
     End Function
-
+    '##################################################################################
+    '           isInstalled
+    'Use:       This detects if a program is already installed.
+    'Returns:   Yup or Nope
+    'ToDo:      Return something less stupid. <3 U EVAN!
+    '##################################################################################
     Private Function isInstalled(ByVal path As String)
         Dim dir As New IO.DirectoryInfo(path)
         If dir.Exists Then
@@ -272,13 +319,18 @@
             Return "nope"
         End If
     End Function
-
+    '##################################################################################
+    '           scriptsCheck
+    'Use:       This detects if a the ResTool_Scripts is on the flash drive.
+    'Returns:   True or false, if false it displays a message box.
+    'ToDo:      Nothing.
+    '##################################################################################
     Private Function scriptsCheck()
         Dim dir As New IO.DirectoryInfo(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts")
         If dir.Exists Then
             Return True
         Else
-            MessageBox.Show("The required 'Scripts' folder is not present. The tool may not work correctly.  Make sure the 'application files' folder is in the same directory as ResTool.")
+            MessageBox.Show("The required 'Scripts' folder is not present. The tool may not work correctly.  Make sure the 'Application Files/ResTool_Scripts' is in the same directory as ResTool.")
             Return False
         End If
     End Function
@@ -567,9 +619,9 @@
         Throw New NotImplementedException
     End Function
 
-    Private Sub FixIt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FixIt.Click
+    Private Sub Uninstaller_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Uninstaller.Click
         MessageBox.Show("This feature is not available in this BETA.  :(")
-        'Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\overnight.bat")
+        'Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\uninstaller.bat")
     End Sub
 
 End Class

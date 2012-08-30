@@ -60,7 +60,7 @@ Partial Class Form1
         Me.Status1 = New System.Windows.Forms.Label()
         Me.Status2 = New System.Windows.Forms.Label()
         Me.IPAddress = New System.Windows.Forms.Label()
-        Me.FixIt = New System.Windows.Forms.Button()
+        Me.Uninstaller = New System.Windows.Forms.Button()
         Me.VersionOfWindows = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -437,14 +437,14 @@ Partial Class Form1
         Me.IPAddress.TabIndex = 22
         Me.IPAddress.Text = "IP:"
         '
-        'FixIt
+        'Uninstaller
         '
-        Me.FixIt.Location = New System.Drawing.Point(348, 385)
-        Me.FixIt.Name = "FixIt"
-        Me.FixIt.Size = New System.Drawing.Size(135, 24)
-        Me.FixIt.TabIndex = 23
-        Me.FixIt.Text = "The Fix It Button"
-        Me.FixIt.UseVisualStyleBackColor = True
+        Me.Uninstaller.Location = New System.Drawing.Point(348, 385)
+        Me.Uninstaller.Name = "Uninstaller"
+        Me.Uninstaller.Size = New System.Drawing.Size(135, 24)
+        Me.Uninstaller.TabIndex = 23
+        Me.Uninstaller.Text = "Uninstall Removal Tools"
+        Me.Uninstaller.UseVisualStyleBackColor = True
         '
         'VersionOfWindows
         '
@@ -461,7 +461,7 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(521, 437)
         Me.Controls.Add(Me.VersionOfWindows)
-        Me.Controls.Add(Me.FixIt)
+        Me.Controls.Add(Me.Uninstaller)
         Me.Controls.Add(Me.IPAddress)
         Me.Controls.Add(Me.Status2)
         Me.Controls.Add(Me.Status1)
@@ -525,7 +525,7 @@ Partial Class Form1
     Friend WithEvents Status1 As System.Windows.Forms.Label
     Friend WithEvents Status2 As System.Windows.Forms.Label
     Friend WithEvents IPAddress As System.Windows.Forms.Label
-    Friend WithEvents FixIt As System.Windows.Forms.Button
+    Friend WithEvents Uninstaller As System.Windows.Forms.Button
     Friend WithEvents VersionOfWindows As System.Windows.Forms.Label
 
 End Class
