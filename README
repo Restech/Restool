@@ -1,4 +1,8 @@
 Restool v3.0
+v3.0.2 Changes [8/29/2012]
+-Installs Malwarebytes even if the user account has a space in it.
+-Added documentation boxes, still need to add more.
+
 v3.0.2 Changes [8/18/2012]
 - Detects the correct OS architecture now.
 - Installs correct version of MSE now.
