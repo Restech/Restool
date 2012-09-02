@@ -1,4 +1,25 @@
+Restool v3.1
+v3.1 [9/1/2012]
+-Installs Malwarebytes correctly (tested many scenarios, hopefully it will be flawless now.)
+-More documentation boxes, still need to add more.
+-Added global variables for commonly accessed paths, such as the ResTech folder.
+-Uninstall Removal Tools button is now functional.
+	+It needs to uninstall one program at a time, currently it tries to do them all at once.
+	 Sometimes this works, othertimes it results in a HUGE mess.
+	+This WILL not remove programs that were already installed, if the download file does not
+	 exist in the ResTech folder, the program will not be removed.
+-Spybot Automation Fixed
+	+This will now install/run using a batch file. It works on my computer, needs testing at
+	 ResTech still. It SHOULD work though.
+-Fsecure only exists in comments now, it WILL be fully removed whenever 3.2 is released.
+
+TODO's
+-Clean up the code more.
+-Break up the fileStarter method into several smaller ones for added flexibility.
+-Work on the Uninstall Removal Tools button more.
+	 
 Restool v3.0
+
 v3.0.2 Changes [8/29/2012]
 -Installs Malwarebytes even if the user account has a space in it.
 -Added documentation boxes, still need to add more.

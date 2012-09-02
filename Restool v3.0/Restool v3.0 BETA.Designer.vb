@@ -24,7 +24,6 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Me.eset_online_scanner = New System.Windows.Forms.Button()
         Me.OsVersion = New System.Windows.Forms.Button()
-        Me.Fsecure = New System.Windows.Forms.Button()
         Me.Housecall = New System.Windows.Forms.Button()
         Me.combofix = New System.Windows.Forms.Button()
         Me.malwarebytes = New System.Windows.Forms.Button()
@@ -88,15 +87,6 @@ Partial Class Form1
         Me.OsVersion.Text = "Get OS Information"
         Me.OsVersion.UseVisualStyleBackColor = True
         '
-        'Fsecure
-        '
-        Me.Fsecure.Location = New System.Drawing.Point(6, 115)
-        Me.Fsecure.Name = "Fsecure"
-        Me.Fsecure.Size = New System.Drawing.Size(135, 23)
-        Me.Fsecure.TabIndex = 2
-        Me.Fsecure.Text = "Fsecure Online Scanner"
-        Me.Fsecure.UseVisualStyleBackColor = True
-        '
         'Housecall
         '
         Me.Housecall.Location = New System.Drawing.Point(163, 83)
@@ -141,7 +131,6 @@ Partial Class Form1
         Me.GroupBox1.Controls.Add(Me.malwarebytes)
         Me.GroupBox1.Controls.Add(Me.Housecall)
         Me.GroupBox1.Controls.Add(Me.spybot)
-        Me.GroupBox1.Controls.Add(Me.Fsecure)
         Me.GroupBox1.Controls.Add(Me.eset_online_scanner)
         Me.GroupBox1.Location = New System.Drawing.Point(194, 146)
         Me.GroupBox1.Name = "GroupBox1"
@@ -152,7 +141,7 @@ Partial Class Form1
         '
         'Bitdefender
         '
-        Me.Bitdefender.Location = New System.Drawing.Point(163, 115)
+        Me.Bitdefender.Location = New System.Drawing.Point(6, 115)
         Me.Bitdefender.Name = "Bitdefender"
         Me.Bitdefender.Size = New System.Drawing.Size(135, 23)
         Me.Bitdefender.TabIndex = 8
@@ -476,7 +465,7 @@ Partial Class Form1
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "Form1"
-        Me.Text = "ResTool v3.0.1 BETA"
+        Me.Text = "ResTool v3.1 BETA"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
@@ -489,7 +478,6 @@ Partial Class Form1
     End Sub
     Friend WithEvents eset_online_scanner As System.Windows.Forms.Button
     Friend WithEvents OsVersion As System.Windows.Forms.Button
-    Friend WithEvents Fsecure As System.Windows.Forms.Button
     Friend WithEvents Housecall As System.Windows.Forms.Button
     Friend WithEvents combofix As System.Windows.Forms.Button
     Friend WithEvents malwarebytes As System.Windows.Forms.Button

@@ -3,6 +3,10 @@
     Public server1 As String = "http://restech.niu.edu/"
     Public server2 As String = "http://servx.zapto.org/Restool/apps/"
     Public serverSelect As String                   'This is the server currently selected
+    Public desktop As String = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) 'Path to the users desktop
+    Public restechFolder As String = desktop & "\ResTech" 'Path to the ResTech folder
+    Public programFiles32 As String = System.Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) 'Program Files 32-bit machines
+    Public programFiles64 As String = System.Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) 'Program Files 64-bit machines
     Private _randomString As String
 
     Private Property randomString(ByVal p1 As Integer) As String
@@ -17,7 +21,7 @@
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         scriptsCheck()
         'Set IP in Title
-        Me.Text = "ResTool v3.0.2 BETA - " & randomText()
+        Me.Text = "ResTool v3.1 BETA - " & randomText()
         IPAddress.Text = "IP: " & System.Net.Dns.GetHostByName(System.Net.Dns.GetHostName().ToString).AddressList(0).ToString()
         'Load Server Options
         ServerList1.Items.AddRange(New Object() {"Restech", "Test"})
@@ -34,32 +38,26 @@
     'COMBOFIX
     Private Sub combofix_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles combofix.Click
         Dim address As String = serverSelect & "cf.exe"
-        Dim file As String = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\cf.exe"
+        Dim file As String = restechFolder & "\cf.exe"
         fileStarter(address, file, "cf.exe", )
     End Sub
     'MALWAREBYTES
     Private Sub malwarebytes_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles malwarebytes.Click
+        'Check if Malwarebytes was installed previously
         Dim file As String = ""
         If findArchitecture() = 64 Then
-            file = "%HOMEDRIVE%\Program Files (x86)\Malwarebytes' Anti-Malware\mbam.exe"
+            file = programFiles64 & "\Malwarebytes' Anti-Malware\mbam.exe"
         ElseIf findArchitecture() = 32 Then
-            file = "%HOMEDRIVE%\Program Files\Malwarebytes' Anti-Malware\mbam.exe"
+            file = programFiles32 & "\Malwarebytes' Anti-Malware\mbam.exe"
         End If
         If System.IO.File.Exists(file) = True Then
-            Dim updateinfo As New ProcessStartInfo
-            updateinfo.FileName = file
-            updateinfo.Arguments = "/updateshowdialog"
-            Dim updateProcess As Process = System.Diagnostics.Process.Start(updateinfo)
-            Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\malwarebytes_run.exe")
-            updateProcess.EnableRaisingEvents = True
-            AddHandler updateProcess.Exited, AddressOf malwarebytesScan
+            Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\Malwarebytes\malwarebytes-run.bat")
         Else
+            'Download and install Malwarebytes
             Dim address As String = serverSelect & "malwarebytes.exe"
-            Dim fileDownload As String = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\ResTech\mb.exe"
-            'Dim fileDownload As String = Environment.CurrentDirectory() & "\Application Files\Install\mb.exe" ##Can be deleted after further testing.
+            Dim fileDownload As String = restechFolder & "\malwarebytes.exe"
             My.Computer.Network.DownloadFile(address, fileDownload, "", "", True, 10, True)
-            'Process.Start(fileDownload) ##Can be deleted after further testing.
-            Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\mwb.bat")
+            Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\Malwarebytes\malwarebytes-install.bat")
         End If
     End Sub
     Private Sub malwarebytesScan()
@@ -77,47 +75,50 @@
 
     'SPYBOT
     Private Sub spybot_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles spybot.Click
-        Dim path As String = ""
-        Dim address As String = serverSelect & "spybot.exe"
-        Dim file As String = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\spybot.exe"
+        Dim file As String = ""
         If findArchitecture() = 64 Then
-            path = "%HOMEDRIVE%\Program Files (x86)\Spybot - Search & Destroy\SpyBotSD.exe"
+            file = programFiles64 & "\Spybot - Search & Destroy\SpyBotSD.exe"
         Else
-            path = "%HOMEDRIVE%\Program Files\Spybot - Search & Destroy\SpyBotSD.exe"
+            file = programFiles32 & "\Spybot - Search & Destroy\SpyBotSD.exe"
         End If
-        If System.IO.File.Exists(path) = True Then
-            ' Check Architecture for existance and then uninstall if uninstaller exists
+        If System.IO.File.Exists(file) = True Then
+            ' Check Architecture for existance and then update & run
             If findArchitecture() = 64 Then
-                Process.Start("%HOMEDRIVE%\Program Files (x86)\Spybot - Search & Destroy\unins000.exe")
+                Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\Spybot\64\spybot-run.bat")
             Else
-                Process.Start("%HOMEDRIVE%\Program Files\Spybot - Search & Destroy\unins000.exe")
+                Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\Spybot\32\spybot-run.bat")
             End If
-            Dim callInstall As Process = System.Diagnostics.Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\spybot_run.exe")
-            callInstall.EnableRaisingEvents = True
-            AddHandler callInstall.Exited, AddressOf installSpybot
         Else
             ' Otherwise Download and install
-            fileStarter(address, file, "spybot.exe", "spybot_install.exe")
+            Dim address As String = serverSelect & "spybot.exe"
+            Dim fileDownload As String = restechFolder & "\spybot.exe"
+            My.Computer.Network.DownloadFile(address, fileDownload, "", "", True, 10, True)
+            If findArchitecture() = 64 Then
+                Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\Spybot\64\spybot-install.bat")
+            Else
+                Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\32\spybot-install.bat")
+            End If
         End If
     End Sub
-    Private Sub installSpybot()
-        Dim file As String = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\ResTech\spybot.exe"
-        Process.Start(file)
-        Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\spybot_install.exe")
-    End Sub
+    'Private Sub installSpybot()
+    '    Dim file As String = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\ResTech\spybot.exe"
+    '    Process.Start(file)
+    '    Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\spybot_install.exe")
+    'End Sub
+
     'ESET
     Private Sub eset_online_scanner_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles eset_online_scanner.Click
         ' Download Eset
         Dim address As String = "http://download.eset.com/special/eos/esetsmartinstaller_enu.exe"
-        Dim file As String = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\eset.exe"
+        Dim file As String = restechFolder & "\eset.exe"
 
         fileStarter(address, file, "eset.exe", "eset_run.exe")
     End Sub
 
     'FSECURE    - This is a useless app. Need to remove soon.
-    Private Sub Fsecure_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Fsecure.Click
-        Process.Start("http://www.f-secure.com/en_EMEA-Labs/security-threats/tools/online-scanner")
-    End Sub
+    'Private Sub Fsecure_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Fsecure.Click
+    '    Process.Start("http://www.f-secure.com/en_EMEA-Labs/security-threats/tools/online-scanner")
+    'End Sub
 
     'HOUSECALL
     Private Sub Housecall_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Housecall.Click
@@ -126,12 +127,12 @@
         Dim fileName As String = ""
         If findArchitecture() = 64 Then
             address = "http://go.trendmicro.com/housecall7/HousecallLauncher64.exe"
-            file = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\housecall64bit.exe"
+            file = restechFolder & "\housecall64bit.exe"
             fileName = "housecall64bit.exe"
         End If
         If findArchitecture() = 32 Then
             address = "http://go.trendmicro.com/housecall7/HousecallLauncher.exe"
-            file = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\housecall32bit.exe"
+            file = restechFolder & "\housecall32bit.exe"
             fileName = "housecall32bit.exe"
         End If
         fileStarter(address, file, fileName, )
@@ -139,13 +140,13 @@
 
     'SUPER-ANTI-SPYWARE
     Private Sub superantispyware_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles superantispyware.Click
-        Dim path As String = "%HOMEDRIVE%\Program Files\Superantispyware"
+        Dim path As String = programFiles32 & "\Superantispyware" 'It installs into Program Files by default!
         If isInstalled(path) = "yup" Then
             Process.Start(path & "\SUPERAntiSpyware.exe")
             Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\superantispyware_run.exe")
         ElseIf isInstalled(path) = "nope" Then
             Dim address As String = serverSelect & "sas.exe"
-            Dim file As String = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\sas.exe"
+            Dim file As String = restechFolder & "\sas.exe"
             fileStarter(address, file, "sas.exe", "superantispyware_install.exe")
             'My.Computer.Network.DownloadFile(address, file, "", "", True, 10, True)
             'Process.Start(file)
@@ -153,7 +154,7 @@
         End If
     End Sub
 
-    'BITDEFENDER
+    'BITDEFENDER    - Does this scan even do anything?
     Private Sub Bitdefender_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Bitdefender.Click
         Process.Start("http://quickscan.bitdefender.com/")
     End Sub
@@ -384,7 +385,8 @@
 
             ' Script and download storage
             processStartInfo = New System.Diagnostics.ProcessStartInfo()
-            processStartInfo.WorkingDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
+            'processStartInfo.WorkingDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
+            processStartInfo.WorkingDirectory = restechFolder
             processStartInfo.FileName = fileName
 
             ' Check version of Windows and ask for admin if higher then Vista
@@ -407,7 +409,7 @@
 
             ' Script and download storage
             processStartInfo = New System.Diagnostics.ProcessStartInfo()
-            processStartInfo.WorkingDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
+            processStartInfo.WorkingDirectory = restechFolder
             processStartInfo.FileName = fileName
             processStartInfo_script = New System.Diagnostics.ProcessStartInfo()
             processStartInfo_script.WorkingDirectory = Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts"
@@ -427,6 +429,7 @@
                 MsgBox("ResFail #3. Can't run the Program (w/ Script)")
             End Try
             Try
+                Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\" & scriptName)
                 System.Diagnostics.Process.Start(processStartInfo_script)
             Catch ex As Exception
                 MsgBox("ResFail #4. Can't run the Script")
@@ -600,6 +603,10 @@
         End Try
     End Sub
 
+    '##################################################################################
+    '           randomText
+    'Use:  Generates some random text for the header.
+    '##################################################################################
     Private Function randomText() As String
         Dim randomString(0 To 9) As String
         Dim rndnumber As Random
@@ -619,9 +626,64 @@
         Throw New NotImplementedException
     End Function
 
+    '##################################################################################
+    '           Uninstall Removal Tools
+    'Use:       Uninstalls removal tools that were installed, leaves those that were
+    '           installed previously.
+    '##################################################################################
     Private Sub Uninstaller_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Uninstaller.Click
-        MessageBox.Show("This feature is not available in this BETA.  :(")
-        'Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\uninstaller.bat")
+        MessageBox.Show("This feature is new, it most likely will not work reliably. Let me know what ends up breaking." & vbNewLine & vbNewLine & "Also, be prepared for a lot of UAC prompts.")
+        Dim restechFolder As String = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\ResTech"
+        If findArchitecture() = 64 Then
+            '###########################################################
+            'Start uninstalling programs for 64-bit versions of Windows.
+            '###########################################################
+            Dim uninstallPath As String = programFiles64 'Path for 64-bit machines.
+            'Uninstall Malwarebytes
+            If System.IO.File.Exists(restechFolder & "\malwarebytes.exe") = True Then
+                Process.Start(uninstallPath & "\Malwarebytes' Anti-Malware\unins000.exe")
+                My.Computer.FileSystem.DeleteFile(restechFolder & "\malwarebytes.exe")
+            End If
+            'Uninstall Spybot
+            If System.IO.File.Exists(restechFolder & "\spybot.exe") = True Then
+                Process.Start(uninstallPath & "\Spybot - Search & Destroy\unins000.exe")
+                My.Computer.FileSystem.DeleteFile(restechFolder & "\spybot.exe")
+            End If
+            'Uninstall ESET
+            If System.IO.File.Exists(restechFolder & "\eset.exe") = True Then
+                Process.Start(uninstallPath & "\ESET\ESET Online Scanner\OnlineScannerUninstaller.exe")
+                My.Computer.FileSystem.DeleteFile(restechFolder & "\eset.exe")
+            End If
+            'Uninstall SUPERAntiSpyware
+            If System.IO.File.Exists(restechFolder & "\sas.exe") = True Then
+                Process.Start(programFiles32 & "\SuperAntiSpyware\Uninstall.exe") 'Installs to Program Files by default, it's kind of stupid.
+                My.Computer.FileSystem.DeleteFile(restechFolder & "\sas.exe")
+            End If
+        ElseIf findArchitecture() = 32 Then
+            '###########################################################
+            'Start uninstalling programs for 32-bit versions of Windows.
+            '###########################################################
+            Dim uninstallPath As String = programFiles32 'Path for 32-bit machines
+            If System.IO.File.Exists(restechFolder & "\malwarebytes.exe") = True Then
+                Process.Start(uninstallPath & "\Malwarebytes' Anti-Malware\unins000.exe")
+                My.Computer.FileSystem.DeleteFile(restechFolder & "\malwarebytes.exe")
+            End If
+            'Uninstall Spybot
+            If System.IO.File.Exists(restechFolder & "\spybot.exe") = True Then
+                Process.Start(uninstallPath & "\Spybot - Search & Destroy\unins000.exe")
+                My.Computer.FileSystem.DeleteFile(restechFolder & "\spybot.exe")
+            End If
+            'Uninstall ESET
+            If System.IO.File.Exists(restechFolder & "\eset.exe") = True Then
+                Process.Start(uninstallPath & "\ESET\ESET Online Scanner\OnlineScannerUninstaller.exe")
+                My.Computer.FileSystem.DeleteFile(restechFolder & "\eset.exe")
+            End If
+            'Uninstall SUPERAntiSpyware
+            If System.IO.File.Exists(restechFolder & "\sas.exe") = True Then
+                Process.Start(uninstallPath & "\SuperAntiSpyware\Uninstall.exe")
+                My.Computer.FileSystem.DeleteFile(restechFolder & "\sas.exe")
+            End If
+        End If
     End Sub
 
 End Class
