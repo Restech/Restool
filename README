@@ -1,4 +1,11 @@
 Restool v3.1
+v3.1.1 [9/2/2012]
+-Uninstall Removal Tools should now work without any issue on 64-bit machines.
+	+May fail on 32-bit machines, haven't tested that and I have no desire to
+	 set up a virtual machine right now.
+-Removed a lot of commented out code, including Fsecure.
+-Added some more documentation boxes, as always though, more need to be added.
+
 v3.1 [9/1/2012]
 -Installs Malwarebytes correctly (tested many scenarios, hopefully it will be flawless now.)
 -More documentation boxes, still need to add more.
