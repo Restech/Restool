@@ -399,6 +399,13 @@
             End Try
         End If
     End Sub
+
+    '##################################################################################
+    '           runCCleaner
+    'Use:       Run's CCleaner.
+    'Returns:   Nothing.
+    'ToDo:      Nothing.
+    '##################################################################################
     Private Sub runCCleaner()
         Dim path As String = ""
         If findArchitecture() = 64 Then
@@ -426,7 +433,12 @@
         Process.Start(file)
     End Sub
 
-    'NAC INSTALL
+    '##################################################################################
+    '           nac_install
+    'Use:       Install Cisco NAC on a computer directly.
+    'Returns:   Nothing.
+    'ToDo:      Nothing.
+    '##################################################################################
     Private Sub nac_install_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles nac_install.Click
         Dim path As String = ""
         If findArchitecture() = 64 Then
@@ -445,7 +457,12 @@
         End If
     End Sub
 
-    'SECURITY ESSENTIALS INSTALL
+    '##################################################################################
+    '           msse_install
+    'Use:       Installs Microsoft Security Essentials.
+    'Returns:   True or false, if false it displays a message box.
+    'ToDo:      Nothing.
+    '##################################################################################
     Private Sub msse_install_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles msse_install.Click
         Dim OS As String = GetOSVersion()
         Dim address As String = ""

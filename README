@@ -1,4 +1,10 @@
 Restool v3.1
+v3.1.2 [9/26/2012]
+-Added more documentation.
+-Started work on tool to fix internet settings.
+	+IPConfig/renew /release /flushdns
+	+Restart Cisco NAC service.
+
 v3.1.1 [9/2/2012]
 -Uninstall Removal Tools should now work without any issue on 64-bit machines.
 	+May fail on 32-bit machines, haven't tested that and I have no desire to

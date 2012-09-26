@@ -126,6 +126,7 @@ Partial Class Form1
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.Bitdefender)
+        Me.GroupBox1.Controls.Add(Me.Uninstaller)
         Me.GroupBox1.Controls.Add(Me.superantispyware)
         Me.GroupBox1.Controls.Add(Me.combofix)
         Me.GroupBox1.Controls.Add(Me.malwarebytes)
@@ -428,7 +429,7 @@ Partial Class Form1
         '
         'Uninstaller
         '
-        Me.Uninstaller.Location = New System.Drawing.Point(348, 385)
+        Me.Uninstaller.Location = New System.Drawing.Point(163, 115)
         Me.Uninstaller.Name = "Uninstaller"
         Me.Uninstaller.Size = New System.Drawing.Size(135, 24)
         Me.Uninstaller.TabIndex = 23
@@ -450,7 +451,6 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(521, 437)
         Me.Controls.Add(Me.VersionOfWindows)
-        Me.Controls.Add(Me.Uninstaller)
         Me.Controls.Add(Me.IPAddress)
         Me.Controls.Add(Me.Status2)
         Me.Controls.Add(Me.Status1)
