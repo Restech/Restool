@@ -595,48 +595,48 @@
     '##################################################################################
     Private Sub Uninstaller_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Uninstaller.Click
         MessageBox.Show("This feature is new, it most likely will not work reliably. Let me know what ends up breaking." & vbNewLine & vbNewLine & "Also, be prepared for a lot of UAC prompts.")
+        Dim resFail5 As String = "ResFail #5. Can't Uninstall "
+        Dim uninstallPath As String = ""
         If findArchitecture() = 64 Then
-            '###########################################################
-            'Start uninstalling programs for 64-bit versions of Windows.
-            '###########################################################
-            Dim uninstallPath As String = programFiles64 'Path for 64-bit machines.
-            'Uninstall Malwarebytes
-            If System.IO.File.Exists(restechFolder & "\malwarebytes.exe") = True Then
-                resRemover(uninstallPath & "\MalwareBytes' Anti-Malware\unins000.exe", "\malwarebytes.exe")
-            End If
-            'Uninstall Spybot
-            If System.IO.File.Exists(restechFolder & "\spybot.exe") = True Then
-                resRemover(uninstallPath & "\Spybot - Search & Destroy\unins000.exe", "\spybot.exe")
-            End If
-            'Uninstall ESET
-            If System.IO.File.Exists(restechFolder & "\eset.exe") = True Then
-                resRemover(uninstallPath & "\ESET\ESET Online Scanner\OnlineScannerUninstaller.exe", "\eset.exe")
-            End If
-            'Uninstall SUPERAntiSpyware
-            If System.IO.File.Exists(restechFolder & "\sas.exe") = True Then
-                resRemover(programFiles32 & "\SuperAntiSpyware\Uninstall.exe", "\sas.exe")
-            End If
+            uninstallPath = programFiles64 'If it's 64-bit
         ElseIf findArchitecture() = 32 Then
-            '###########################################################
-            'Start uninstalling programs for 32-bit versions of Windows.
-            '###########################################################
-            Dim uninstallPath As String = programFiles32 'Path for 32-bit machines
-            'Uninstall Malwarebytes
-            If System.IO.File.Exists(restechFolder & "\malwarebytes.exe") = True Then
+            uninstallPath = programFiles32 ' If it's 32-bit
+        End If
+        '###########################################################
+        'Start uninstalling the programs.
+        '###########################################################
+        'Uninstall Malwarebytes
+        If System.IO.File.Exists(restechFolder & "\malwarebytes.exe") = True Then
+            Try
                 resRemover(uninstallPath & "\MalwareBytes' Anti-Malware\unins000.exe", "\malwarebytes.exe")
-            End If
-            'Uninstall Spybot
-            If System.IO.File.Exists(restechFolder & "\spybot.exe") = True Then
+            Catch ex As Exception
+                MsgBox(resFail5 & "Malwarebytes")
+                Return
+            End Try
+        End If
+        'Uninstall Spybot
+        If System.IO.File.Exists(restechFolder & "\spybot.exe") = True Then
+            Try
                 resRemover(uninstallPath & "\Spybot - Search & Destroy\unins000.exe", "\spybot.exe")
-            End If
-            'Uninstall ESET
-            If System.IO.File.Exists(restechFolder & "\eset.exe") = True Then
+            Catch ex As Exception
+                MsgBox(resFail5 & "Spybot")
+            End Try
+        End If
+        'Uninstall ESET
+        If System.IO.File.Exists(restechFolder & "\eset.exe") = True Then
+            Try
                 resRemover(uninstallPath & "\ESET\ESET Online Scanner\OnlineScannerUninstaller.exe", "\eset.exe")
-            End If
-            'Uninstall SUPERAntiSpyware
-            If System.IO.File.Exists(restechFolder & "\sas.exe") = True Then
+            Catch ex As Exception
+                MsgBox(resFail5 & "Eset")
+            End Try
+        End If
+        'Uninstall SUPERAntiSpyware
+        If System.IO.File.Exists(restechFolder & "\sas.exe") = True Then
+            Try
                 resRemover(programFiles32 & "\SuperAntiSpyware\Uninstall.exe", "\sas.exe")
-            End If
+            Catch ex As Exception
+                MsgBox(resFail5 & "SUPERAntiSpyware")
+            End Try
         End If
     End Sub
 
@@ -672,6 +672,18 @@
         randomString(8) = "Don't Forget To Check The Voicemail!"
         randomString(9) = "Now With Awesome Sauce!"
         Return randomString(number)
-        Throw New NotImplementedException
     End Function
+    '##################################################################################
+    '           bInternetFixer
+    'Use:       Resets a bunch of stuff with the internet.
+    '##################################################################################
+    Private Sub bInternetFixer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles bInternetFixer.Click
+        'If Sendori is installed, remove it.
+        'Check if IE is set to work offline.
+        'Clear SSL State
+        'If NETSH doesn't change DNS, change the DNS to automatic
+        Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\InternetRepair\ipconfig.bat")
+        Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\InternetRepair\netsh.bat")
+        Process.Start(Environment.CurrentDirectory() & "\Application Files\ResTool_Scripts\InternetRepair\cisco-restart.bat")
+    End Sub
 End Class

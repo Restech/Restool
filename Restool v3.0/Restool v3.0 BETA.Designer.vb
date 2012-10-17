@@ -30,6 +30,7 @@ Partial Class Form1
         Me.spybot = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Bitdefender = New System.Windows.Forms.Button()
+        Me.Uninstaller = New System.Windows.Forms.Button()
         Me.superantispyware = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
@@ -59,8 +60,8 @@ Partial Class Form1
         Me.Status1 = New System.Windows.Forms.Label()
         Me.Status2 = New System.Windows.Forms.Label()
         Me.IPAddress = New System.Windows.Forms.Label()
-        Me.Uninstaller = New System.Windows.Forms.Button()
         Me.VersionOfWindows = New System.Windows.Forms.Label()
+        Me.bInternetFixer = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -148,6 +149,15 @@ Partial Class Form1
         Me.Bitdefender.TabIndex = 8
         Me.Bitdefender.Text = "Bitdefender Scanner"
         Me.Bitdefender.UseVisualStyleBackColor = True
+        '
+        'Uninstaller
+        '
+        Me.Uninstaller.Location = New System.Drawing.Point(163, 115)
+        Me.Uninstaller.Name = "Uninstaller"
+        Me.Uninstaller.Size = New System.Drawing.Size(135, 24)
+        Me.Uninstaller.TabIndex = 23
+        Me.Uninstaller.Text = "Uninstall Removal Tools"
+        Me.Uninstaller.UseVisualStyleBackColor = True
         '
         'superantispyware
         '
@@ -307,6 +317,7 @@ Partial Class Form1
         '
         'GroupBox6
         '
+        Me.GroupBox6.Controls.Add(Me.bInternetFixer)
         Me.GroupBox6.Controls.Add(Me.systemfilecheck)
         Me.GroupBox6.Controls.Add(Me.windowsupdatefix)
         Me.GroupBox6.Controls.Add(Me.reset_permissions)
@@ -427,15 +438,6 @@ Partial Class Form1
         Me.IPAddress.TabIndex = 22
         Me.IPAddress.Text = "IP:"
         '
-        'Uninstaller
-        '
-        Me.Uninstaller.Location = New System.Drawing.Point(163, 115)
-        Me.Uninstaller.Name = "Uninstaller"
-        Me.Uninstaller.Size = New System.Drawing.Size(135, 24)
-        Me.Uninstaller.TabIndex = 23
-        Me.Uninstaller.Text = "Uninstall Removal Tools"
-        Me.Uninstaller.UseVisualStyleBackColor = True
-        '
         'VersionOfWindows
         '
         Me.VersionOfWindows.AutoSize = True
@@ -444,6 +446,15 @@ Partial Class Form1
         Me.VersionOfWindows.Size = New System.Drawing.Size(101, 13)
         Me.VersionOfWindows.TabIndex = 24
         Me.VersionOfWindows.Text = "Version of Windows"
+        '
+        'bInternetFixer
+        '
+        Me.bInternetFixer.Location = New System.Drawing.Point(339, 47)
+        Me.bInternetFixer.Name = "bInternetFixer"
+        Me.bInternetFixer.Size = New System.Drawing.Size(132, 22)
+        Me.bInternetFixer.TabIndex = 14
+        Me.bInternetFixer.Text = "Internet Fixer"
+        Me.bInternetFixer.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -515,5 +526,6 @@ Partial Class Form1
     Friend WithEvents IPAddress As System.Windows.Forms.Label
     Friend WithEvents Uninstaller As System.Windows.Forms.Button
     Friend WithEvents VersionOfWindows As System.Windows.Forms.Label
+    Friend WithEvents bInternetFixer As System.Windows.Forms.Button
 
 End Class
