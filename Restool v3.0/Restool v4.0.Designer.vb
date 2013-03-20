@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class NewUI
+Partial Class ResTool
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,135 +22,129 @@ Partial Class NewUI
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ResTool))
         Me.tabControls = New System.Windows.Forms.TabControl()
         Me.VirusRemoval = New System.Windows.Forms.TabPage()
-        Me.WindowsRepair = New System.Windows.Forms.TabPage()
-        Me.Maintenance = New System.Windows.Forms.TabPage()
-        Me.lblWindowsVersion = New System.Windows.Forms.Label()
-        Me.bComboFix = New System.Windows.Forms.Button()
-        Me.bMalwarebytes = New System.Windows.Forms.Button()
-        Me.Spybot = New System.Windows.Forms.Button()
-        Me.bSuperAntiSpyware = New System.Windows.Forms.Button()
-        Me.bEset = New System.Windows.Forms.Button()
-        Me.bHouseCall = New System.Windows.Forms.Button()
-        Me.bMalwarebytesRootkit = New System.Windows.Forms.Button()
-        Me.bOTL = New System.Windows.Forms.Button()
+        Me.bSophosAV = New System.Windows.Forms.Button()
+        Me.wbVirusRemoval = New System.Windows.Forms.WebBrowser()
         Me.bUninstall = New System.Windows.Forms.Button()
-        Me.bMultipleAV = New System.Windows.Forms.Button()
-        Me.lblMemory = New System.Windows.Forms.Label()
-        Me.lblCPU = New System.Windows.Forms.Label()
-        Me.lblIP = New System.Windows.Forms.Label()
-        Me.lblServer = New System.Windows.Forms.Label()
-        Me.listServer = New System.Windows.Forms.ComboBox()
+        Me.bHousecall = New System.Windows.Forms.Button()
+        Me.bEset = New System.Windows.Forms.Button()
+        Me.bSuperAntiSpyware = New System.Windows.Forms.Button()
+        Me.bSpybot = New System.Windows.Forms.Button()
+        Me.bMalwarebytes = New System.Windows.Forms.Button()
+        Me.bComboFix = New System.Windows.Forms.Button()
+        Me.Rootkit = New System.Windows.Forms.TabPage()
+        Me.wbRootkit = New System.Windows.Forms.WebBrowser()
+        Me.bSophos = New System.Windows.Forms.Button()
+        Me.bTDSS = New System.Windows.Forms.Button()
+        Me.bMalwarebytesRootkit = New System.Windows.Forms.Button()
         Me.NIUTools = New System.Windows.Forms.TabPage()
-        Me.bMSE = New System.Windows.Forms.Button()
-        Me.bMcAfee = New System.Windows.Forms.Button()
+        Me.bNIUwireless = New System.Windows.Forms.Button()
+        Me.wbNIU = New System.Windows.Forms.WebBrowser()
+        Me.bRemoveCiscoNAC = New System.Windows.Forms.Button()
         Me.bCiscoNAC = New System.Windows.Forms.Button()
-        Me.bCisco = New System.Windows.Forms.Button()
-        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.bMcAfee = New System.Windows.Forms.Button()
+        Me.bMSE = New System.Windows.Forms.Button()
+        Me.Maintenance = New System.Windows.Forms.TabPage()
+        Me.bMSCONFIG = New System.Windows.Forms.Button()
+        Me.wbMaintenance = New System.Windows.Forms.WebBrowser()
+        Me.bCCleaner = New System.Windows.Forms.Button()
+        Me.WindowsRepair = New System.Windows.Forms.TabPage()
+        Me.bWindowAIO = New System.Windows.Forms.Button()
+        Me.wbWindowsRepair = New System.Windows.Forms.WebBrowser()
+        Me.bFixIt = New System.Windows.Forms.Button()
+        Me.bSFC = New System.Windows.Forms.Button()
+        Me.AVRemoval = New System.Windows.Forms.TabPage()
+        Me.bKasperskyRemoval = New System.Windows.Forms.Button()
+        Me.bAvastRemoval = New System.Windows.Forms.Button()
+        Me.bTrendRemoval = New System.Windows.Forms.Button()
+        Me.bAVGRemoval = New System.Windows.Forms.Button()
+        Me.bMcAfeeRemoval = New System.Windows.Forms.Button()
+        Me.bNortonRemoval = New System.Windows.Forms.Button()
+        Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
+        Me.bMultipleAV = New System.Windows.Forms.Button()
+        Me.lblWindowsVersion = New System.Windows.Forms.Label()
+        Me.lblMemory = New System.Windows.Forms.Label()
+        Me.lblIP = New System.Windows.Forms.Label()
+        Me.cbTutorial = New System.Windows.Forms.CheckBox()
         Me.tabControls.SuspendLayout()
         Me.VirusRemoval.SuspendLayout()
-        Me.Maintenance.SuspendLayout()
+        Me.Rootkit.SuspendLayout()
         Me.NIUTools.SuspendLayout()
+        Me.Maintenance.SuspendLayout()
+        Me.WindowsRepair.SuspendLayout()
+        Me.AVRemoval.SuspendLayout()
         Me.SuspendLayout()
         '
         'tabControls
         '
         Me.tabControls.Controls.Add(Me.VirusRemoval)
-        Me.tabControls.Controls.Add(Me.WindowsRepair)
-        Me.tabControls.Controls.Add(Me.Maintenance)
+        Me.tabControls.Controls.Add(Me.Rootkit)
         Me.tabControls.Controls.Add(Me.NIUTools)
+        Me.tabControls.Controls.Add(Me.Maintenance)
+        Me.tabControls.Controls.Add(Me.WindowsRepair)
+        Me.tabControls.Controls.Add(Me.AVRemoval)
         Me.tabControls.Location = New System.Drawing.Point(5, 12)
         Me.tabControls.Name = "tabControls"
         Me.tabControls.SelectedIndex = 0
-        Me.tabControls.Size = New System.Drawing.Size(838, 406)
+        Me.tabControls.Size = New System.Drawing.Size(973, 464)
         Me.tabControls.TabIndex = 0
         '
         'VirusRemoval
         '
+        Me.VirusRemoval.Controls.Add(Me.bSophosAV)
+        Me.VirusRemoval.Controls.Add(Me.wbVirusRemoval)
         Me.VirusRemoval.Controls.Add(Me.bUninstall)
-        Me.VirusRemoval.Controls.Add(Me.bOTL)
-        Me.VirusRemoval.Controls.Add(Me.bMalwarebytesRootkit)
-        Me.VirusRemoval.Controls.Add(Me.bHouseCall)
+        Me.VirusRemoval.Controls.Add(Me.bHousecall)
         Me.VirusRemoval.Controls.Add(Me.bEset)
         Me.VirusRemoval.Controls.Add(Me.bSuperAntiSpyware)
-        Me.VirusRemoval.Controls.Add(Me.Spybot)
+        Me.VirusRemoval.Controls.Add(Me.bSpybot)
         Me.VirusRemoval.Controls.Add(Me.bMalwarebytes)
         Me.VirusRemoval.Controls.Add(Me.bComboFix)
         Me.VirusRemoval.Location = New System.Drawing.Point(4, 22)
         Me.VirusRemoval.Name = "VirusRemoval"
         Me.VirusRemoval.Padding = New System.Windows.Forms.Padding(3)
-        Me.VirusRemoval.Size = New System.Drawing.Size(830, 380)
+        Me.VirusRemoval.Size = New System.Drawing.Size(965, 438)
         Me.VirusRemoval.TabIndex = 0
         Me.VirusRemoval.Text = "Virus Removal"
         Me.VirusRemoval.UseVisualStyleBackColor = True
         '
-        'WindowsRepair
+        'bSophosAV
         '
-        Me.WindowsRepair.Location = New System.Drawing.Point(4, 22)
-        Me.WindowsRepair.Name = "WindowsRepair"
-        Me.WindowsRepair.Padding = New System.Windows.Forms.Padding(3)
-        Me.WindowsRepair.Size = New System.Drawing.Size(830, 380)
-        Me.WindowsRepair.TabIndex = 1
-        Me.WindowsRepair.Text = "Windows Repair"
-        Me.WindowsRepair.UseVisualStyleBackColor = True
+        Me.bSophosAV.Location = New System.Drawing.Point(8, 257)
+        Me.bSophosAV.Name = "bSophosAV"
+        Me.bSophosAV.Size = New System.Drawing.Size(128, 35)
+        Me.bSophosAV.TabIndex = 10
+        Me.bSophosAV.Text = "Sophos AV"
+        Me.bSophosAV.UseVisualStyleBackColor = True
         '
-        'Maintenance
+        'wbVirusRemoval
         '
-        Me.Maintenance.Controls.Add(Me.bCisco)
-        Me.Maintenance.Controls.Add(Me.bMultipleAV)
-        Me.Maintenance.Location = New System.Drawing.Point(4, 22)
-        Me.Maintenance.Name = "Maintenance"
-        Me.Maintenance.Size = New System.Drawing.Size(830, 380)
-        Me.Maintenance.TabIndex = 2
-        Me.Maintenance.Text = "Maintenance"
-        Me.Maintenance.UseVisualStyleBackColor = True
+        Me.wbVirusRemoval.Location = New System.Drawing.Point(142, 7)
+        Me.wbVirusRemoval.MinimumSize = New System.Drawing.Size(20, 20)
+        Me.wbVirusRemoval.Name = "wbVirusRemoval"
+        Me.wbVirusRemoval.Size = New System.Drawing.Size(817, 425)
+        Me.wbVirusRemoval.TabIndex = 9
+        Me.wbVirusRemoval.Url = New System.Uri("http://intranet.restech.niu.edu", System.UriKind.Absolute)
         '
-        'lblWindowsVersion
+        'bUninstall
         '
-        Me.lblWindowsVersion.AutoSize = True
-        Me.lblWindowsVersion.Location = New System.Drawing.Point(2, 425)
-        Me.lblWindowsVersion.Name = "lblWindowsVersion"
-        Me.lblWindowsVersion.Size = New System.Drawing.Size(103, 13)
-        Me.lblWindowsVersion.TabIndex = 1
-        Me.lblWindowsVersion.Text = "Version Of Windows"
+        Me.bUninstall.Location = New System.Drawing.Point(8, 298)
+        Me.bUninstall.Name = "bUninstall"
+        Me.bUninstall.Size = New System.Drawing.Size(128, 35)
+        Me.bUninstall.TabIndex = 8
+        Me.bUninstall.Text = "Uninstall Removal Tools"
+        Me.bUninstall.UseVisualStyleBackColor = True
         '
-        'bComboFix
+        'bHousecall
         '
-        Me.bComboFix.Location = New System.Drawing.Point(7, 7)
-        Me.bComboFix.Name = "bComboFix"
-        Me.bComboFix.Size = New System.Drawing.Size(128, 35)
-        Me.bComboFix.TabIndex = 0
-        Me.bComboFix.Text = "Combo Fix"
-        Me.bComboFix.UseVisualStyleBackColor = True
-        '
-        'bMalwarebytes
-        '
-        Me.bMalwarebytes.Location = New System.Drawing.Point(7, 48)
-        Me.bMalwarebytes.Name = "bMalwarebytes"
-        Me.bMalwarebytes.Size = New System.Drawing.Size(128, 39)
-        Me.bMalwarebytes.TabIndex = 1
-        Me.bMalwarebytes.Text = "Malwarebytes"
-        Me.bMalwarebytes.UseVisualStyleBackColor = True
-        '
-        'Spybot
-        '
-        Me.Spybot.Location = New System.Drawing.Point(7, 93)
-        Me.Spybot.Name = "Spybot"
-        Me.Spybot.Size = New System.Drawing.Size(128, 35)
-        Me.Spybot.TabIndex = 2
-        Me.Spybot.Text = "Spybot"
-        Me.Spybot.UseVisualStyleBackColor = True
-        '
-        'bSuperAntiSpyware
-        '
-        Me.bSuperAntiSpyware.Location = New System.Drawing.Point(7, 134)
-        Me.bSuperAntiSpyware.Name = "bSuperAntiSpyware"
-        Me.bSuperAntiSpyware.Size = New System.Drawing.Size(128, 35)
-        Me.bSuperAntiSpyware.TabIndex = 3
-        Me.bSuperAntiSpyware.Text = "SuperAntiSpyware"
-        Me.bSuperAntiSpyware.UseVisualStyleBackColor = True
+        Me.bHousecall.Location = New System.Drawing.Point(7, 216)
+        Me.bHousecall.Name = "bHousecall"
+        Me.bHousecall.Size = New System.Drawing.Size(128, 35)
+        Me.bHousecall.TabIndex = 5
+        Me.bHousecall.Text = "Trend Micro Housecall"
+        Me.bHousecall.UseVisualStyleBackColor = True
         '
         'bEset
         '
@@ -161,117 +155,142 @@ Partial Class NewUI
         Me.bEset.Text = "Eset Online Scanner"
         Me.bEset.UseVisualStyleBackColor = True
         '
-        'bHouseCall
+        'bSuperAntiSpyware
         '
-        Me.bHouseCall.Location = New System.Drawing.Point(7, 216)
-        Me.bHouseCall.Name = "bHouseCall"
-        Me.bHouseCall.Size = New System.Drawing.Size(128, 35)
-        Me.bHouseCall.TabIndex = 5
-        Me.bHouseCall.Text = "Trend Micro Housecall"
-        Me.bHouseCall.UseVisualStyleBackColor = True
+        Me.bSuperAntiSpyware.Location = New System.Drawing.Point(7, 134)
+        Me.bSuperAntiSpyware.Name = "bSuperAntiSpyware"
+        Me.bSuperAntiSpyware.Size = New System.Drawing.Size(128, 35)
+        Me.bSuperAntiSpyware.TabIndex = 3
+        Me.bSuperAntiSpyware.Text = "SuperAntiSpyware"
+        Me.bSuperAntiSpyware.UseVisualStyleBackColor = True
+        '
+        'bSpybot
+        '
+        Me.bSpybot.Location = New System.Drawing.Point(7, 93)
+        Me.bSpybot.Name = "bSpybot"
+        Me.bSpybot.Size = New System.Drawing.Size(128, 35)
+        Me.bSpybot.TabIndex = 2
+        Me.bSpybot.Text = "Spybot"
+        Me.bSpybot.UseVisualStyleBackColor = True
+        '
+        'bMalwarebytes
+        '
+        Me.bMalwarebytes.Location = New System.Drawing.Point(7, 48)
+        Me.bMalwarebytes.Name = "bMalwarebytes"
+        Me.bMalwarebytes.Size = New System.Drawing.Size(128, 39)
+        Me.bMalwarebytes.TabIndex = 1
+        Me.bMalwarebytes.Text = "Malwarebytes"
+        Me.bMalwarebytes.UseVisualStyleBackColor = True
+        '
+        'bComboFix
+        '
+        Me.bComboFix.Location = New System.Drawing.Point(7, 7)
+        Me.bComboFix.Name = "bComboFix"
+        Me.bComboFix.Size = New System.Drawing.Size(129, 35)
+        Me.bComboFix.TabIndex = 0
+        Me.bComboFix.Text = "Combo Fix"
+        Me.bComboFix.UseVisualStyleBackColor = True
+        '
+        'Rootkit
+        '
+        Me.Rootkit.Controls.Add(Me.wbRootkit)
+        Me.Rootkit.Controls.Add(Me.bSophos)
+        Me.Rootkit.Controls.Add(Me.bTDSS)
+        Me.Rootkit.Controls.Add(Me.bMalwarebytesRootkit)
+        Me.Rootkit.Location = New System.Drawing.Point(4, 22)
+        Me.Rootkit.Name = "Rootkit"
+        Me.Rootkit.Size = New System.Drawing.Size(965, 438)
+        Me.Rootkit.TabIndex = 4
+        Me.Rootkit.Text = "Rootkit"
+        Me.Rootkit.UseVisualStyleBackColor = True
+        '
+        'wbRootkit
+        '
+        Me.wbRootkit.Location = New System.Drawing.Point(141, 7)
+        Me.wbRootkit.MinimumSize = New System.Drawing.Size(20, 20)
+        Me.wbRootkit.Name = "wbRootkit"
+        Me.wbRootkit.Size = New System.Drawing.Size(817, 425)
+        Me.wbRootkit.TabIndex = 10
+        Me.wbRootkit.Url = New System.Uri("http://intranet.restech.niu.edu", System.UriKind.Absolute)
+        '
+        'bSophos
+        '
+        Me.bSophos.Location = New System.Drawing.Point(7, 89)
+        Me.bSophos.Name = "bSophos"
+        Me.bSophos.Size = New System.Drawing.Size(128, 35)
+        Me.bSophos.TabIndex = 9
+        Me.bSophos.Text = "Sophos"
+        Me.bSophos.UseVisualStyleBackColor = True
+        '
+        'bTDSS
+        '
+        Me.bTDSS.Location = New System.Drawing.Point(7, 48)
+        Me.bTDSS.Name = "bTDSS"
+        Me.bTDSS.Size = New System.Drawing.Size(128, 35)
+        Me.bTDSS.TabIndex = 8
+        Me.bTDSS.Text = "TDSS"
+        Me.bTDSS.UseVisualStyleBackColor = True
         '
         'bMalwarebytesRootkit
         '
-        Me.bMalwarebytesRootkit.Location = New System.Drawing.Point(7, 257)
+        Me.bMalwarebytesRootkit.Location = New System.Drawing.Point(7, 7)
         Me.bMalwarebytesRootkit.Name = "bMalwarebytesRootkit"
         Me.bMalwarebytesRootkit.Size = New System.Drawing.Size(128, 35)
-        Me.bMalwarebytesRootkit.TabIndex = 6
+        Me.bMalwarebytesRootkit.TabIndex = 7
         Me.bMalwarebytesRootkit.Text = "Malwarebytes Anti-Rootkit"
         Me.bMalwarebytesRootkit.UseVisualStyleBackColor = True
         '
-        'bOTL
-        '
-        Me.bOTL.Location = New System.Drawing.Point(7, 298)
-        Me.bOTL.Name = "bOTL"
-        Me.bOTL.Size = New System.Drawing.Size(128, 35)
-        Me.bOTL.TabIndex = 7
-        Me.bOTL.Text = "OTL by OldTimer"
-        Me.bOTL.UseVisualStyleBackColor = True
-        '
-        'bUninstall
-        '
-        Me.bUninstall.Location = New System.Drawing.Point(7, 339)
-        Me.bUninstall.Name = "bUninstall"
-        Me.bUninstall.Size = New System.Drawing.Size(128, 35)
-        Me.bUninstall.TabIndex = 8
-        Me.bUninstall.Text = "Uninstall Removal Tools"
-        Me.bUninstall.UseVisualStyleBackColor = True
-        '
-        'bMultipleAV
-        '
-        Me.bMultipleAV.Location = New System.Drawing.Point(7, 7)
-        Me.bMultipleAV.Name = "bMultipleAV"
-        Me.bMultipleAV.Size = New System.Drawing.Size(128, 35)
-        Me.bMultipleAV.TabIndex = 6
-        Me.bMultipleAV.Text = "Multiple Antivirus Check"
-        Me.bMultipleAV.UseVisualStyleBackColor = True
-        '
-        'lblMemory
-        '
-        Me.lblMemory.AutoSize = True
-        Me.lblMemory.Location = New System.Drawing.Point(2, 445)
-        Me.lblMemory.Name = "lblMemory"
-        Me.lblMemory.Size = New System.Drawing.Size(44, 13)
-        Me.lblMemory.TabIndex = 2
-        Me.lblMemory.Text = "Memory"
-        '
-        'lblCPU
-        '
-        Me.lblCPU.AutoSize = True
-        Me.lblCPU.Location = New System.Drawing.Point(2, 465)
-        Me.lblCPU.Name = "lblCPU"
-        Me.lblCPU.Size = New System.Drawing.Size(29, 13)
-        Me.lblCPU.TabIndex = 3
-        Me.lblCPU.Text = "CPU"
-        '
-        'lblIP
-        '
-        Me.lblIP.AutoSize = True
-        Me.lblIP.Location = New System.Drawing.Point(2, 485)
-        Me.lblIP.Name = "lblIP"
-        Me.lblIP.Size = New System.Drawing.Size(58, 13)
-        Me.lblIP.TabIndex = 4
-        Me.lblIP.Text = "IP Address"
-        '
-        'lblServer
-        '
-        Me.lblServer.AutoSize = True
-        Me.lblServer.Location = New System.Drawing.Point(2, 505)
-        Me.lblServer.Name = "lblServer"
-        Me.lblServer.Size = New System.Drawing.Size(38, 13)
-        Me.lblServer.TabIndex = 5
-        Me.lblServer.Text = "Server"
-        '
-        'listServer
-        '
-        Me.listServer.FormattingEnabled = True
-        Me.listServer.Location = New System.Drawing.Point(46, 505)
-        Me.listServer.MaxDropDownItems = 2
-        Me.listServer.Name = "listServer"
-        Me.listServer.Size = New System.Drawing.Size(121, 21)
-        Me.listServer.TabIndex = 17
-        '
         'NIUTools
         '
+        Me.NIUTools.Controls.Add(Me.bNIUwireless)
+        Me.NIUTools.Controls.Add(Me.wbNIU)
+        Me.NIUTools.Controls.Add(Me.bRemoveCiscoNAC)
         Me.NIUTools.Controls.Add(Me.bCiscoNAC)
         Me.NIUTools.Controls.Add(Me.bMcAfee)
         Me.NIUTools.Controls.Add(Me.bMSE)
         Me.NIUTools.Location = New System.Drawing.Point(4, 22)
         Me.NIUTools.Name = "NIUTools"
         Me.NIUTools.Padding = New System.Windows.Forms.Padding(3)
-        Me.NIUTools.Size = New System.Drawing.Size(830, 380)
+        Me.NIUTools.Size = New System.Drawing.Size(965, 438)
         Me.NIUTools.TabIndex = 3
         Me.NIUTools.Text = "NIU Tools"
         Me.NIUTools.UseVisualStyleBackColor = True
         '
-        'bMSE
+        'bNIUwireless
         '
-        Me.bMSE.Location = New System.Drawing.Point(7, 7)
-        Me.bMSE.Name = "bMSE"
-        Me.bMSE.Size = New System.Drawing.Size(128, 35)
-        Me.bMSE.TabIndex = 7
-        Me.bMSE.Text = "Microsoft Security Essentials"
-        Me.bMSE.UseVisualStyleBackColor = True
+        Me.bNIUwireless.Location = New System.Drawing.Point(8, 171)
+        Me.bNIUwireless.Name = "bNIUwireless"
+        Me.bNIUwireless.Size = New System.Drawing.Size(128, 35)
+        Me.bNIUwireless.TabIndex = 12
+        Me.bNIUwireless.Text = "Setup NIUwireless"
+        Me.bNIUwireless.UseVisualStyleBackColor = True
+        '
+        'wbNIU
+        '
+        Me.wbNIU.Location = New System.Drawing.Point(142, 6)
+        Me.wbNIU.MinimumSize = New System.Drawing.Size(20, 20)
+        Me.wbNIU.Name = "wbNIU"
+        Me.wbNIU.Size = New System.Drawing.Size(817, 425)
+        Me.wbNIU.TabIndex = 11
+        Me.wbNIU.Url = New System.Uri("http://intranet.restech.niu.edu", System.UriKind.Absolute)
+        '
+        'bRemoveCiscoNAC
+        '
+        Me.bRemoveCiscoNAC.Location = New System.Drawing.Point(7, 130)
+        Me.bRemoveCiscoNAC.Name = "bRemoveCiscoNAC"
+        Me.bRemoveCiscoNAC.Size = New System.Drawing.Size(128, 35)
+        Me.bRemoveCiscoNAC.TabIndex = 10
+        Me.bRemoveCiscoNAC.Text = "Cisco NAC Removal"
+        Me.bRemoveCiscoNAC.UseVisualStyleBackColor = True
+        '
+        'bCiscoNAC
+        '
+        Me.bCiscoNAC.Location = New System.Drawing.Point(7, 89)
+        Me.bCiscoNAC.Name = "bCiscoNAC"
+        Me.bCiscoNAC.Size = New System.Drawing.Size(128, 35)
+        Me.bCiscoNAC.TabIndex = 9
+        Me.bCiscoNAC.Text = "Cisco NAC Install"
+        Me.bCiscoNAC.UseVisualStyleBackColor = True
         '
         'bMcAfee
         '
@@ -282,42 +301,250 @@ Partial Class NewUI
         Me.bMcAfee.Text = "NIU McAfee Install"
         Me.bMcAfee.UseVisualStyleBackColor = True
         '
-        'bCiscoNAC
+        'bMSE
         '
-        Me.bCiscoNAC.Location = New System.Drawing.Point(7, 89)
-        Me.bCiscoNAC.Name = "bCiscoNAC"
-        Me.bCiscoNAC.Size = New System.Drawing.Size(128, 35)
-        Me.bCiscoNAC.TabIndex = 9
-        Me.bCiscoNAC.Text = "Cisco NAC"
-        Me.bCiscoNAC.UseVisualStyleBackColor = True
+        Me.bMSE.Location = New System.Drawing.Point(7, 7)
+        Me.bMSE.Name = "bMSE"
+        Me.bMSE.Size = New System.Drawing.Size(128, 35)
+        Me.bMSE.TabIndex = 7
+        Me.bMSE.Text = "Microsoft Security Essentials"
+        Me.bMSE.UseVisualStyleBackColor = True
         '
-        'bCisco
+        'Maintenance
         '
-        Me.bCisco.Location = New System.Drawing.Point(7, 48)
-        Me.bCisco.Name = "bCisco"
-        Me.bCisco.Size = New System.Drawing.Size(128, 35)
-        Me.bCisco.TabIndex = 8
-        Me.bCisco.Text = "CCleaner"
-        Me.bCisco.UseVisualStyleBackColor = True
+        Me.Maintenance.Controls.Add(Me.bMSCONFIG)
+        Me.Maintenance.Controls.Add(Me.wbMaintenance)
+        Me.Maintenance.Controls.Add(Me.bCCleaner)
+        Me.Maintenance.Location = New System.Drawing.Point(4, 22)
+        Me.Maintenance.Name = "Maintenance"
+        Me.Maintenance.Size = New System.Drawing.Size(965, 438)
+        Me.Maintenance.TabIndex = 2
+        Me.Maintenance.Text = "Maintenance"
+        Me.Maintenance.UseVisualStyleBackColor = True
         '
-        'NewUI
+        'bMSCONFIG
+        '
+        Me.bMSCONFIG.Location = New System.Drawing.Point(7, 48)
+        Me.bMSCONFIG.Name = "bMSCONFIG"
+        Me.bMSCONFIG.Size = New System.Drawing.Size(128, 35)
+        Me.bMSCONFIG.TabIndex = 11
+        Me.bMSCONFIG.Text = "MSConfig"
+        Me.bMSCONFIG.UseVisualStyleBackColor = True
+        '
+        'wbMaintenance
+        '
+        Me.wbMaintenance.Location = New System.Drawing.Point(141, 7)
+        Me.wbMaintenance.MinimumSize = New System.Drawing.Size(20, 20)
+        Me.wbMaintenance.Name = "wbMaintenance"
+        Me.wbMaintenance.Size = New System.Drawing.Size(817, 425)
+        Me.wbMaintenance.TabIndex = 10
+        Me.wbMaintenance.Url = New System.Uri("http://intranet.restech.niu.edu", System.UriKind.Absolute)
+        '
+        'bCCleaner
+        '
+        Me.bCCleaner.Location = New System.Drawing.Point(7, 7)
+        Me.bCCleaner.Name = "bCCleaner"
+        Me.bCCleaner.Size = New System.Drawing.Size(128, 35)
+        Me.bCCleaner.TabIndex = 8
+        Me.bCCleaner.Text = "CCleaner"
+        Me.bCCleaner.UseVisualStyleBackColor = True
+        '
+        'WindowsRepair
+        '
+        Me.WindowsRepair.Controls.Add(Me.bWindowAIO)
+        Me.WindowsRepair.Controls.Add(Me.wbWindowsRepair)
+        Me.WindowsRepair.Controls.Add(Me.bFixIt)
+        Me.WindowsRepair.Controls.Add(Me.bSFC)
+        Me.WindowsRepair.Location = New System.Drawing.Point(4, 22)
+        Me.WindowsRepair.Name = "WindowsRepair"
+        Me.WindowsRepair.Padding = New System.Windows.Forms.Padding(3)
+        Me.WindowsRepair.Size = New System.Drawing.Size(965, 438)
+        Me.WindowsRepair.TabIndex = 1
+        Me.WindowsRepair.Text = "Windows Repair"
+        Me.WindowsRepair.UseVisualStyleBackColor = True
+        '
+        'bWindowAIO
+        '
+        Me.bWindowAIO.Location = New System.Drawing.Point(7, 89)
+        Me.bWindowAIO.Name = "bWindowAIO"
+        Me.bWindowAIO.Size = New System.Drawing.Size(128, 35)
+        Me.bWindowAIO.TabIndex = 12
+        Me.bWindowAIO.Text = "All In One Repair"
+        Me.bWindowAIO.UseVisualStyleBackColor = True
+        '
+        'wbWindowsRepair
+        '
+        Me.wbWindowsRepair.Location = New System.Drawing.Point(141, 7)
+        Me.wbWindowsRepair.MinimumSize = New System.Drawing.Size(20, 20)
+        Me.wbWindowsRepair.Name = "wbWindowsRepair"
+        Me.wbWindowsRepair.Size = New System.Drawing.Size(817, 425)
+        Me.wbWindowsRepair.TabIndex = 11
+        Me.wbWindowsRepair.Url = New System.Uri("http://intranet.restech.niu.edu", System.UriKind.Absolute)
+        '
+        'bFixIt
+        '
+        Me.bFixIt.Location = New System.Drawing.Point(7, 48)
+        Me.bFixIt.Name = "bFixIt"
+        Me.bFixIt.Size = New System.Drawing.Size(128, 35)
+        Me.bFixIt.TabIndex = 10
+        Me.bFixIt.Text = "Microsoft Fix It"
+        Me.bFixIt.UseVisualStyleBackColor = True
+        '
+        'bSFC
+        '
+        Me.bSFC.Location = New System.Drawing.Point(7, 7)
+        Me.bSFC.Name = "bSFC"
+        Me.bSFC.Size = New System.Drawing.Size(128, 35)
+        Me.bSFC.TabIndex = 9
+        Me.bSFC.Text = "System File Checker"
+        Me.bSFC.UseVisualStyleBackColor = True
+        '
+        'AVRemoval
+        '
+        Me.AVRemoval.Controls.Add(Me.bKasperskyRemoval)
+        Me.AVRemoval.Controls.Add(Me.bAvastRemoval)
+        Me.AVRemoval.Controls.Add(Me.bTrendRemoval)
+        Me.AVRemoval.Controls.Add(Me.bAVGRemoval)
+        Me.AVRemoval.Controls.Add(Me.bMcAfeeRemoval)
+        Me.AVRemoval.Controls.Add(Me.bNortonRemoval)
+        Me.AVRemoval.Controls.Add(Me.WebBrowser1)
+        Me.AVRemoval.Controls.Add(Me.bMultipleAV)
+        Me.AVRemoval.Location = New System.Drawing.Point(4, 22)
+        Me.AVRemoval.Name = "AVRemoval"
+        Me.AVRemoval.Size = New System.Drawing.Size(965, 438)
+        Me.AVRemoval.TabIndex = 5
+        Me.AVRemoval.Text = "Anti Virus Removal"
+        Me.AVRemoval.UseVisualStyleBackColor = True
+        '
+        'bKasperskyRemoval
+        '
+        Me.bKasperskyRemoval.Location = New System.Drawing.Point(7, 253)
+        Me.bKasperskyRemoval.Name = "bKasperskyRemoval"
+        Me.bKasperskyRemoval.Size = New System.Drawing.Size(128, 35)
+        Me.bKasperskyRemoval.TabIndex = 18
+        Me.bKasperskyRemoval.Text = "Kaspersky"
+        Me.bKasperskyRemoval.UseVisualStyleBackColor = True
+        '
+        'bAvastRemoval
+        '
+        Me.bAvastRemoval.Location = New System.Drawing.Point(7, 212)
+        Me.bAvastRemoval.Name = "bAvastRemoval"
+        Me.bAvastRemoval.Size = New System.Drawing.Size(128, 35)
+        Me.bAvastRemoval.TabIndex = 17
+        Me.bAvastRemoval.Text = "Avast"
+        Me.bAvastRemoval.UseVisualStyleBackColor = True
+        '
+        'bTrendRemoval
+        '
+        Me.bTrendRemoval.Location = New System.Drawing.Point(7, 171)
+        Me.bTrendRemoval.Name = "bTrendRemoval"
+        Me.bTrendRemoval.Size = New System.Drawing.Size(128, 35)
+        Me.bTrendRemoval.TabIndex = 16
+        Me.bTrendRemoval.Text = "Trend Micro"
+        Me.bTrendRemoval.UseVisualStyleBackColor = True
+        '
+        'bAVGRemoval
+        '
+        Me.bAVGRemoval.Location = New System.Drawing.Point(7, 130)
+        Me.bAVGRemoval.Name = "bAVGRemoval"
+        Me.bAVGRemoval.Size = New System.Drawing.Size(128, 35)
+        Me.bAVGRemoval.TabIndex = 15
+        Me.bAVGRemoval.Text = "AVG"
+        Me.bAVGRemoval.UseVisualStyleBackColor = True
+        '
+        'bMcAfeeRemoval
+        '
+        Me.bMcAfeeRemoval.Location = New System.Drawing.Point(7, 89)
+        Me.bMcAfeeRemoval.Name = "bMcAfeeRemoval"
+        Me.bMcAfeeRemoval.Size = New System.Drawing.Size(128, 35)
+        Me.bMcAfeeRemoval.TabIndex = 14
+        Me.bMcAfeeRemoval.Text = "McAfee"
+        Me.bMcAfeeRemoval.UseVisualStyleBackColor = True
+        '
+        'bNortonRemoval
+        '
+        Me.bNortonRemoval.Location = New System.Drawing.Point(7, 48)
+        Me.bNortonRemoval.Name = "bNortonRemoval"
+        Me.bNortonRemoval.Size = New System.Drawing.Size(128, 35)
+        Me.bNortonRemoval.TabIndex = 13
+        Me.bNortonRemoval.Text = "Norton"
+        Me.bNortonRemoval.UseVisualStyleBackColor = True
+        '
+        'WebBrowser1
+        '
+        Me.WebBrowser1.Location = New System.Drawing.Point(141, 7)
+        Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
+        Me.WebBrowser1.Name = "WebBrowser1"
+        Me.WebBrowser1.Size = New System.Drawing.Size(817, 425)
+        Me.WebBrowser1.TabIndex = 12
+        Me.WebBrowser1.Url = New System.Uri("http://intranet.restech.niu.edu", System.UriKind.Absolute)
+        '
+        'bMultipleAV
+        '
+        Me.bMultipleAV.Location = New System.Drawing.Point(7, 7)
+        Me.bMultipleAV.Name = "bMultipleAV"
+        Me.bMultipleAV.Size = New System.Drawing.Size(128, 35)
+        Me.bMultipleAV.TabIndex = 7
+        Me.bMultipleAV.Text = "Multiple Antivirus Check"
+        Me.bMultipleAV.UseVisualStyleBackColor = True
+        '
+        'lblWindowsVersion
+        '
+        Me.lblWindowsVersion.AutoSize = True
+        Me.lblWindowsVersion.Location = New System.Drawing.Point(2, 479)
+        Me.lblWindowsVersion.Name = "lblWindowsVersion"
+        Me.lblWindowsVersion.Size = New System.Drawing.Size(103, 13)
+        Me.lblWindowsVersion.TabIndex = 1
+        Me.lblWindowsVersion.Text = "Version Of Windows"
+        '
+        'lblMemory
+        '
+        Me.lblMemory.AutoSize = True
+        Me.lblMemory.Location = New System.Drawing.Point(2, 499)
+        Me.lblMemory.Name = "lblMemory"
+        Me.lblMemory.Size = New System.Drawing.Size(44, 13)
+        Me.lblMemory.TabIndex = 2
+        Me.lblMemory.Text = "Memory"
+        '
+        'lblIP
+        '
+        Me.lblIP.AutoSize = True
+        Me.lblIP.Location = New System.Drawing.Point(2, 521)
+        Me.lblIP.Name = "lblIP"
+        Me.lblIP.Size = New System.Drawing.Size(58, 13)
+        Me.lblIP.TabIndex = 4
+        Me.lblIP.Text = "IP Address"
+        '
+        'cbTutorial
+        '
+        Me.cbTutorial.AutoSize = True
+        Me.cbTutorial.Location = New System.Drawing.Point(887, 11)
+        Me.cbTutorial.Name = "cbTutorial"
+        Me.cbTutorial.Size = New System.Drawing.Size(91, 17)
+        Me.cbTutorial.TabIndex = 13
+        Me.cbTutorial.Text = "Tutorial Mode"
+        Me.cbTutorial.UseVisualStyleBackColor = True
+        '
+        'ResTool
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(846, 528)
-        Me.Controls.Add(Me.listServer)
-        Me.Controls.Add(Me.lblServer)
+        Me.ClientSize = New System.Drawing.Size(990, 542)
+        Me.Controls.Add(Me.cbTutorial)
         Me.Controls.Add(Me.lblIP)
-        Me.Controls.Add(Me.lblCPU)
         Me.Controls.Add(Me.lblMemory)
         Me.Controls.Add(Me.lblWindowsVersion)
         Me.Controls.Add(Me.tabControls)
-        Me.Name = "NewUI"
-        Me.Text = "ResTool New UI"
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Name = "ResTool"
+        Me.Text = "ResTool v4.0 - Extreme Beta, Things Will Break"
         Me.tabControls.ResumeLayout(False)
         Me.VirusRemoval.ResumeLayout(False)
-        Me.Maintenance.ResumeLayout(False)
+        Me.Rootkit.ResumeLayout(False)
         Me.NIUTools.ResumeLayout(False)
+        Me.Maintenance.ResumeLayout(False)
+        Me.WindowsRepair.ResumeLayout(False)
+        Me.AVRemoval.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -327,25 +554,44 @@ Partial Class NewUI
     Friend WithEvents WindowsRepair As System.Windows.Forms.TabPage
     Friend WithEvents Maintenance As System.Windows.Forms.TabPage
     Friend WithEvents lblWindowsVersion As System.Windows.Forms.Label
-    Friend WithEvents Spybot As System.Windows.Forms.Button
+    Friend WithEvents bSpybot As System.Windows.Forms.Button
     Friend WithEvents bMalwarebytes As System.Windows.Forms.Button
     Friend WithEvents bComboFix As System.Windows.Forms.Button
     Friend WithEvents bEset As System.Windows.Forms.Button
     Friend WithEvents bSuperAntiSpyware As System.Windows.Forms.Button
-    Friend WithEvents bHouseCall As System.Windows.Forms.Button
-    Friend WithEvents bOTL As System.Windows.Forms.Button
-    Friend WithEvents bMalwarebytesRootkit As System.Windows.Forms.Button
+    Friend WithEvents bHousecall As System.Windows.Forms.Button
     Friend WithEvents bUninstall As System.Windows.Forms.Button
-    Friend WithEvents bMultipleAV As System.Windows.Forms.Button
     Friend WithEvents lblMemory As System.Windows.Forms.Label
-    Friend WithEvents lblCPU As System.Windows.Forms.Label
     Friend WithEvents lblIP As System.Windows.Forms.Label
-    Friend WithEvents lblServer As System.Windows.Forms.Label
-    Friend WithEvents listServer As System.Windows.Forms.ComboBox
     Friend WithEvents NIUTools As System.Windows.Forms.TabPage
     Friend WithEvents bMcAfee As System.Windows.Forms.Button
     Friend WithEvents bMSE As System.Windows.Forms.Button
-    Friend WithEvents bCisco As System.Windows.Forms.Button
+    Friend WithEvents bCCleaner As System.Windows.Forms.Button
     Friend WithEvents bCiscoNAC As System.Windows.Forms.Button
-    Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
+    Friend WithEvents wbVirusRemoval As System.Windows.Forms.WebBrowser
+    Friend WithEvents Rootkit As System.Windows.Forms.TabPage
+    Friend WithEvents bMalwarebytesRootkit As System.Windows.Forms.Button
+    Friend WithEvents bSophos As System.Windows.Forms.Button
+    Friend WithEvents bTDSS As System.Windows.Forms.Button
+    Friend WithEvents bSophosAV As System.Windows.Forms.Button
+    Friend WithEvents bRemoveCiscoNAC As System.Windows.Forms.Button
+    Friend WithEvents AVRemoval As System.Windows.Forms.TabPage
+    Friend WithEvents bMultipleAV As System.Windows.Forms.Button
+    Friend WithEvents bFixIt As System.Windows.Forms.Button
+    Friend WithEvents wbWindowsRepair As System.Windows.Forms.WebBrowser
+    Friend WithEvents wbRootkit As System.Windows.Forms.WebBrowser
+    Friend WithEvents WebBrowser1 As System.Windows.Forms.WebBrowser
+    Friend WithEvents wbNIU As System.Windows.Forms.WebBrowser
+    Friend WithEvents wbMaintenance As System.Windows.Forms.WebBrowser
+    Friend WithEvents bNIUwireless As System.Windows.Forms.Button
+    Friend WithEvents bNortonRemoval As System.Windows.Forms.Button
+    Friend WithEvents bMcAfeeRemoval As System.Windows.Forms.Button
+    Friend WithEvents bAVGRemoval As System.Windows.Forms.Button
+    Friend WithEvents bTrendRemoval As System.Windows.Forms.Button
+    Friend WithEvents bAvastRemoval As System.Windows.Forms.Button
+    Friend WithEvents bKasperskyRemoval As System.Windows.Forms.Button
+    Friend WithEvents bSFC As System.Windows.Forms.Button
+    Friend WithEvents bMSCONFIG As System.Windows.Forms.Button
+    Friend WithEvents bWindowAIO As System.Windows.Forms.Button
+    Friend WithEvents cbTutorial As System.Windows.Forms.CheckBox
 End Class

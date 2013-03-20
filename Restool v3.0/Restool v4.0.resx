@@ -117,7 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="ToolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAGABoAwAAFgAAACgAAAAQAAAAIAAAAAEAGAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAA
+        AAD////////+/v7e3t66urq8vLze3t7+/v7////////////////////////////////////Y2Ng8PDxA
+        QEBdXWZeXmRAQEAoKCh3d3fj4+P////////////////////////29vY8PD1fX9MfH/07O/1eXv19ffyo
+        qPKYmJlRUVGvr6/9/f39/f3///////////+ysrJQUKEBAf2/v/3+/v7+/v57e3ucnJx5eXmIiIiJiYmC
+        goKDg4P///////////+hoaFNTbwSEv3+/v7////+/v57e3uIiIiioqKDg4P8/PyCgoJlZWXy8vL/////
+        ///Nzc1fX4EFBf3f3/7///////97e3umpqZ9fX2SkpKXl5dxcXFiYmJiYmL////////+/v5JSUl+fuuD
+        g/3////n5+dvb2/m5ub+/v7+/v7+/v7IyMj+/v5ra2vS0tL////////IyMhMTEyMjI2Skp6SkpKampqi
+        oqLu7u6AgIB5eXkaGhqXl5fX19d+fn7///////////+GhoZ9fX11dXWurrCoqKm1tbXFxcVzc3MuLi5M
+        TEwdHR339/diYmL///////////+JiYl1dXVzc3ODg4OEhIS8vLy9vb2dnZ0MDAx9fX0AAAB9fX2Hh4f/
+        //////////+kpKR/f3/5+fmLi4tBQUGfn5+6urpsbGwAAACUlJQQEBApKSnv7+//////////////////
+        ///////+/v7W1tZ/f39kZGQAAAAMDAyGhoZAQEAAAACvr6//////////////////////////////////
+        ///x8fGwsLCBgYGdnZ0AAAAAAABBQUH///////////////////////////////////////////+jo6MP
+        Dw8AAAAAAACoqKj///////////////////////////////////////////+CgoIAAAAAAABra2v+/v7/
+        ///////////////////////////////////////////5+fnv7+/r6+v7+/v///////8AAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+</value>
+  </data>
 </root>

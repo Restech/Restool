@@ -9,7 +9,7 @@
     <OutputType>WinExe</OutputType>
     <StartupObject>WindowsApplication1.My.MyApplication</StartupObject>
     <RootNamespace>WindowsApplication1</RootNamespace>
-    <AssemblyName>Restool v3.0</AssemblyName>
+    <AssemblyName>Restool v4.0</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
@@ -51,7 +51,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>Restool v3.0.xml</DocumentationFile>
+    <DocumentationFile>Restool v4.0.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -60,7 +60,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>Restool v3.0.xml</DocumentationFile>
+    <DocumentationFile>Restool v4.0.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -96,10 +96,10 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Restool v4.0.Designer.vb">
-      <DependentUpon>Restool v4.0.vb</DependentUpon>
+    <Compile Include="ResTool v4.0.Designer.vb">
+      <DependentUpon>ResTool v4.0.vb</DependentUpon>
     </Compile>
-    <Compile Include="Restool v4.0.vb">
+    <Compile Include="ResTool v4.0.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Restool v3.0 BETA.Designer.vb">
@@ -123,16 +123,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="UserControl1.Designer.vb">
-      <DependentUpon>UserControl1.vb</DependentUpon>
-    </Compile>
-    <Compile Include="UserControl1.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Restool v4.0.resx">
-      <DependentUpon>Restool v4.0.vb</DependentUpon>
+    <EmbeddedResource Include="ResTool v4.0.resx">
+      <DependentUpon>ResTool v4.0.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Restool v3.0 BETA.resx">
       <DependentUpon>Restool v3.0 BETA.vb</DependentUpon>
