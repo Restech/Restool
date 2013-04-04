@@ -206,7 +206,7 @@ Partial Class ResTool
         '
         'wbRootkit
         '
-        Me.wbRootkit.Location = New System.Drawing.Point(141, 7)
+        Me.wbRootkit.Location = New System.Drawing.Point(142, 7)
         Me.wbRootkit.MinimumSize = New System.Drawing.Size(20, 20)
         Me.wbRootkit.Name = "wbRootkit"
         Me.wbRootkit.Size = New System.Drawing.Size(817, 425)
@@ -267,7 +267,7 @@ Partial Class ResTool
         '
         'wbNIU
         '
-        Me.wbNIU.Location = New System.Drawing.Point(142, 6)
+        Me.wbNIU.Location = New System.Drawing.Point(142, 7)
         Me.wbNIU.MinimumSize = New System.Drawing.Size(20, 20)
         Me.wbNIU.Name = "wbNIU"
         Me.wbNIU.Size = New System.Drawing.Size(817, 425)

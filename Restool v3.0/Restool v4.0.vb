@@ -3,7 +3,7 @@ Imports Microsoft.Win32
 
 Public Class ResTool
     'List of Server addresses
-    Private serverList(0 To 2) As String ' List of servers stored in an array.
+    Private serverList(0 To 1) As String ' List of servers stored in an array.
     Public serverSelect As String ' This is the server currently selected
     Public desktop As String = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop) 'Path to the users desktop
     Public restechFolder As String = desktop & "\ResTech" 'Path to the ResTech folder
@@ -25,7 +25,6 @@ Public Class ResTool
     Private Sub ResTool_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         serverList(0) = "http://restech.niu.edu/"
         serverList(1) = "http://servx.zapto.org/Restool/apps/"
-        serverList(2) = "http://restool.codyengel.com/apps/"
         lblIP.Text = "IP: " & System.Net.Dns.GetHostByName(System.Net.Dns.GetHostName().ToString).AddressList(0).ToString()
         pollServer()
         lblWindowsVersion.Text = "Operating System: " & GetOSVersion()
@@ -934,6 +933,9 @@ Public Class ResTool
         Return "Error" 'If it's unable to connect, it returns an error.
     End Function
 
+    '##################################################################################
+    '#        Enables/Disables Tutorial Mode
+    '##################################################################################
     Private Sub cbTutorial_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbTutorial.CheckedChanged
         If cbTutorial.Checked = True Then
             MsgBox("Tutorial Mode Enabled." & vbCrLf & "You will not be able to use ResTool to clean the computer until this is unchecked!")

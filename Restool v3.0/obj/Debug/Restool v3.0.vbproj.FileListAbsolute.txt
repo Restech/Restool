@@ -1,0 +1,16 @@
+C:\Users\admin\Documents\GitHub\Restool\Restool v3.0\bin\Debug\ResTool.exe.config
+C:\Users\admin\Documents\GitHub\Restool\Restool v3.0\bin\Debug\ResTool.exe.manifest
+C:\Users\admin\Documents\GitHub\Restool\Restool v3.0\bin\Debug\ResTool.application
+C:\Users\admin\Documents\GitHub\Restool\Restool v3.0\bin\Debug\ResTool.exe
+C:\Users\admin\Documents\GitHub\Restool\Restool v3.0\bin\Debug\ResTool.pdb
+C:\Users\admin\Documents\GitHub\Restool\Restool v3.0\bin\Debug\ResTool.xml
+C:\Users\admin\Documents\GitHub\Restool\Restool v3.0\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\admin\Documents\GitHub\Restool\Restool v3.0\obj\Debug\ResTool.ResTool.resources
+C:\Users\admin\Documents\GitHub\Restool\Restool v3.0\obj\Debug\ResTool.Resources.resources
+C:\Users\admin\Documents\GitHub\Restool\Restool v3.0\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\admin\Documents\GitHub\Restool\Restool v3.0\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\admin\Documents\GitHub\Restool\Restool v3.0\obj\Debug\ResTool.exe.manifest
+C:\Users\admin\Documents\GitHub\Restool\Restool v3.0\obj\Debug\ResTool.application
+C:\Users\admin\Documents\GitHub\Restool\Restool v3.0\obj\Debug\ResTool.exe
+C:\Users\admin\Documents\GitHub\Restool\Restool v3.0\obj\Debug\ResTool.xml
+C:\Users\admin\Documents\GitHub\Restool\Restool v3.0\obj\Debug\ResTool.pdb
